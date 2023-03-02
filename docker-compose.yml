@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    image: admission-hub:latest
+    container_name: admission-hub
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: main.py
+      SECRET_KEY: "@admission-hub@"
+    networks:
+      - network-admission-hub
+
+
+networks:
+  network-admission-hub:
+    driver: bridge
