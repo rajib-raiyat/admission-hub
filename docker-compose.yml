@@ -2,8 +2,8 @@ version: '3'
 
 services:
   app:
-    image: admission-hub:latest
     container_name: admission-hub
+    build: .
     ports:
       - "5000:5000"
     environment:
@@ -12,7 +12,23 @@ services:
       SECRET_KEY: "@admission-hub@"
     networks:
       - network-admission-hub
+    depends_on:
+      - postgres
 
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=hello_flask
+      - POSTGRES_PASSWORD=hello_flask
+      - POSTGRES_DB=hello_flask_dev
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    driver: local
 
 networks:
   network-admission-hub:
