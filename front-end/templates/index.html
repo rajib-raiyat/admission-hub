@@ -8,67 +8,131 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
-        .btn-primary ,.btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+        .btn-primary {
             background-color: #7476c9;
+
         }
-        .bg-image{
+
+        .bg-image {
             filter: blur(0px) brightness(0.9) saturate(0.5);
         }
+
+
     </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-md navbar-light shadow-sm fs-5" style="background-color: #fff6e5;">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
-        </a>
-        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">How to Apply</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Apply Now</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Sign In As University</a>
-                </li>
-            </ul>
+<div>
+    <nav class="navbar navbar-expand-md navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
+            </a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">How to Apply</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Apply Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Sign In As University</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
-<!-- Jumbotron -->
-<div class="jumbotron-fluid text-lg-center d-flex justify-content-center align-items-center image-fluid bg-image "
-     style="
+    <!-- Jumbotron -->
+    <div class="jumbotron-fluid text-lg-center d-flex justify-content-center align-items-center image-fluid  "
+         style="
     background-image: url('../assets/homepage-bg2.avif');
     height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    ">
+        <div class="container-xxl">
+            <h1 class="display-4 text-white" style=" filter: ">AdmissionHub</h1>
+            <p class="lead text-white">Your one-stop destination for college admissions.</p>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Apply Now
+            </button>
+
+            <!-- Application Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 9999;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Admission Form</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="hscRoll" class="col-sm-3 col-form-label">HSC Roll:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="hscRoll">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="hscReg" class="col-sm-3 col-form-label">HSC Registration:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="hscReg">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="hscYear" class="col-sm-3 col-form-label">HSC Year:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="hscYear">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="hscBoard" class="col-sm-3 col-form-label">HSC Board:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="hscBoard">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="captcha" class="col-sm-3 col-form-label">Captcha:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="captcha">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-  ">
-    <main class="container-xxl">
-        <h1 class="display-4 text-white" style=" filter: ">AdmissionHub</h1>
-        <p class="lead text-white">Your one-stop destination for college admissions.</p>
-        <a href="#" class="btn btn-primary btn-lg text-white" >Apply Now</a>
-    </main>
+        </div>
+
+
+    </div>
+
+    <!-- Home Page Content -->
+
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-auto fixed-bottom" style="background-color: #fff6e5;">
+        <p class="mb-0">Copyright © 2023 AdmissionHub. All rights reserved.</p>
+    </footer>
 </div>
-
-<!-- Home Page Content -->
-
-<!-- Footer -->
-<footer class="text-center py-3 mt-auto" style="background-color: #fff6e5;">
-    <p class="mb-0">Copyright © 2023 AdmissionHub. All rights reserved.</p>
-</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
