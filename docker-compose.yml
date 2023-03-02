@@ -16,17 +16,19 @@ services:
       - postgres
 
   postgres:
-    image: postgres:15-alpine
+    image: postgres:15
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: admissions
+      - POSTGRES_USER=hello_flask
+      - POSTGRES_PASSWORD=hello_flask
+      - POSTGRES_DB=hello_flask_dev
+    ports:
+      - '5432:5432'
     volumes:
-      - pgdata:/var/lib/postgresql/data
-
+      - postgres:/var/lib/postgresql/data
 
 volumes:
-  pgdata:
+  postgres:
+    driver: local
 
 networks:
   network-admission-hub:
