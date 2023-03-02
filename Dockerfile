@@ -43,6 +43,8 @@ ENV PATH=/home/user-admission/.local/bin:$PATH \
 
 # Copy the rest of the app code to the container
 COPY main.py .
+COPY .env .
+COPY front-end/ front-end/
 
 # Set the default command to start the app
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
