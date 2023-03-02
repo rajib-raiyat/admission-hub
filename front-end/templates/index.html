@@ -7,6 +7,14 @@
     <title>AdmissionHub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .btn-primary ,.btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+            background-color: #7476c9;
+        }
+        .bg-image{
+            filter: blur(0px) brightness(0.9) saturate(0.5);
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -40,17 +48,18 @@
 <div class="jumbotron-fluid text-lg-center d-flex justify-content-center align-items-center image-fluid bg-image "
      style="
     background-image: url('../assets/homepage-bg2.avif');
-    height: 470px;
+    height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
+
   ">
     <main class="container-xxl">
-        <h1 class="display-4 text-white">AdmissionHub</h1>
+        <h1 class="display-4 text-white" style=" filter: ">AdmissionHub</h1>
         <p class="lead text-white">Your one-stop destination for college admissions.</p>
-        <a href="#" class="btn btn-primary btn-lg">Apply Now</a>
+        <a href="#" class="btn btn-primary btn-lg text-white" >Apply Now</a>
     </main>
 </div>
 
