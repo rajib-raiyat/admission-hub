@@ -17,6 +17,44 @@
             filter: blur(0px) brightness(0.9) saturate(0.5);
         }
 
+        .floating-label {
+            position: relative;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        .floating-label label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 14px;
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            color: #6c757d;
+        }
+
+        .floating-label .form-control {
+            border: none;
+            border-bottom: 1px solid #6c757d;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            height: auto;
+            font-size: 16px;
+        }
+
+        .floating-label .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .floating-label .form-control:focus ~ label {
+            top: -1rem;
+            left: 0;
+            font-size: 12px;
+            color: #007bff;
+        }
+
 
     </style>
 </head>
@@ -37,9 +75,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">How to Apply</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Apply Now</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Sign In As University</a>
                     </li>
@@ -58,6 +94,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
     ">
         <div class="container-xxl">
             <h1 class="display-4 text-white" style=" filter: ">AdmissionHub</h1>
@@ -68,9 +105,10 @@
             </button>
 
             <!-- Application Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 role="dialog"
                  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="z-index: 9999;">
+                <div class="modal-dialog modal-dialog-centered" role="document" style="z-index: 9999;">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">Admission Form</h5>
@@ -80,34 +118,48 @@
                         </div>
                         <div class="modal-body">
                             <form>
-                                <div class="form-group row">
-                                    <label for="hscRoll" class="col-sm-3 col-form-label">HSC Roll:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="hscRoll">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <div class="floating-label">
+                                            <input type="text" class="form-control" id="hscRoll" placeholder=" ">
+                                            <label for="hscRoll">HSC Roll</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <div class="floating-label">
+                                            <input type="text" class="form-control" id="hscReg" placeholder=" ">
+                                            <label for="hscReg">HSC Registration</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="hscReg" class="col-sm-3 col-form-label">HSC Registration:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="hscReg">
+                                <div class="form-group">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="hscYear"
+                                                aria-label="Floating label select example">
+                                            <option value="" disabled selected>Select Year</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2023">2023</option>
+                                        </select>
+                                        <label for="hscYear">HSC Year</label>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="hscYear" class="col-sm-3 col-form-label">HSC Year:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="hscYear">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="hscBoard" class="col-sm-3 col-form-label">HSC Board:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="hscBoard">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="captcha" class="col-sm-3 col-form-label">Captcha:</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="captcha">
+                                <div class="form-group">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="hscBoard"
+                                                aria-label="Floating label select example">
+                                            <option value="" disabled selected>Select Board</option>
+                                            <option value="Dhaka">Dhaka</option>
+                                            <option value="Chittagong">Chittagong</option>
+                                            <option value="Rajshahi">Rajshahi</option>
+
+                                            <option value="Dhaka">Comilla</option>
+                                            <option value="Chittagong">Sylhet</option>
+                                            <option value="Rajshahi">Dinajpur</option>
+                                            <option value="Rajshahi">Jessore</option>
+                                            <option value="Rajshahi">Barisal</option>
+                                        </select>
+                                        <label for="hscBoard">HSC Board</label>
                                     </div>
                                 </div>
                             </form>
