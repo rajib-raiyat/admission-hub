@@ -1,4 +1,5 @@
-# Build stageFROM python:3.11-alpine3.17 AS build
+# Build stage
+FROM python:3.11-alpine3.17 AS build
 
 # Create a non-root user to run the app
 RUN adduser --disabled-password --gecos '' user-admission
