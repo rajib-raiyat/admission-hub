@@ -1,5 +1,4 @@
-# Build stage
-FROM python:3.11-slim-buster AS build
+# Build stageFROM python:3.11-alpine3.17 AS build
 
 # Create a non-root user to run the app
 RUN adduser --disabled-password --gecos '' user-admission
@@ -21,7 +20,7 @@ RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir --user -r requirements.txt
 
 # Final stage
-FROM python:3.11-slim-buster
+FROM python:3.11-alpine3.17
 
 # Create a non-root user to run the app
 RUN adduser --disabled-password --gecos '' user-admission
@@ -46,5 +45,25 @@ COPY main.py .
 COPY .env .
 COPY front-end/ front-end/
 
+# switch user to root user
+USER root
+
+# update and remove all unnecessary packages
+RUN apk update && \
+    apk del build-base gcc musl-dev linux-headers && \
+    rm -rf /var/cache/apk/*
+
+# Set UMASK
+RUN echo "umask 027" >> /etc/profile
+
+# Change ownership of the app folder to the non-root user
+RUN chown -R user-admission:user-admission /app
+
+# Make the container read-only
+RUN chmod -R a-w /app
+
 # Set the default command to start the app
 CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
+
+# switch user to no-root user
+USER user-admission
