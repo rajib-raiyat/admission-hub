@@ -98,8 +98,8 @@
 <body class="d-flex flex-column min-vh-100">
 <!-- Navigation Bar -->
 <div>
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
-        <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
             </a>
@@ -112,7 +112,8 @@
                         <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>
 
                         <div class="dropdown">
-                            <a aria-expanded="false" class="btn btn-green dropdown-toggle fs-5 nav-item" data-bs-auto-close="outside"
+                            <a aria-expanded="false" class="btn btn-green dropdown-toggle fs-5 nav-item"
+                               data-bs-auto-close="outside"
                                data-bs-toggle="dropdown" href="#" id="universityDropdown"
                                role="button">
                                 Login
@@ -122,12 +123,13 @@
 
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleDropdownFormEmail2">Email address</label>
-                                    <input class="form-control" id="exampleDropdownFormEmail2" placeholder="Email address"
+                                    <input class="form-control" id="exampleDropdownFormEmail2"
+                                           placeholder="Email address"
                                            type="email">
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleDropdownFormPassword2">Password</label>
-                                    <input class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"
+                                    <input class="form-control"  id="exampleDropdownFormPassword2" placeholder="Password"
                                            type="password">
                                 </div>
                                 <div class="mb-3">
@@ -146,7 +148,7 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center order-md-2">
                         <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
-                            <img alt="Mujib Logo" height="75" src="../assets/mujib-logo.png" width="160">
+                            <img alt="Mujib Logo" height="60" src="../assets/mujib-logo.png" width="160">
                         </a>
                     </div>
                 </ul>
@@ -230,7 +232,9 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-light" data-bs-dismiss="modal" type="button">Close</button>
-                            <button class="btn btn-primary" type="button">Submit</button>
+                            <button class="btn btn-primary" type="button" onclick="window.location.href='Form.html'">
+                                Submit
+                            </button>
                         </div>
                     </div>
                 </div>
