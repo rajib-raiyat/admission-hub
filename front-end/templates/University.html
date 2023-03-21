@@ -9,12 +9,36 @@
 
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
-    <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+
     <style>
+        .btn-primary {
+            color: #fff;
+            background-color: #fb771a;
+            border-color: #fb771a
+        }
+
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #eb6304;
+            border-color: #de5e04
+        }
+
+        .btn-primary.focus, .btn-primary:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(252, 139, 60, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(252, 139, 60, 0.5)
+        }
+
+        .btn-info{
+
+        }
+
+
+
         .cards-wrapper {
             display: flex;
             justify-content: center;
@@ -80,18 +104,19 @@
 </head>
 <body class="" style="margin-right: 5%; margin-left: 5%; margin-top: 2%; background-color: #fff6e5">
 <div class="text-center">
-    <h1>Welcome To AdmissionHub</h1>
-    <hr class="" style="height:2px;width: 75% ;border-width:0;color:black;background-color:gray">
     <h3>Choose Your Desired University To Get Admit</h3>
+    <hr class="" style="height:2px;width: 75% ;border-width:0;color:black;background-color:gray">
+
 
 </div>
-<div id="carouselExampleControls" class="carousel slide container " data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide container" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
         <li data-target="#carousel" data-slide-to="1"></li>
         <li data-target="#carousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner ">
+    <div class="carousel-inner" role="listbox">
+
         <div class="carousel-item active">
             <div class="cards-wrapper">
                 <div class="card">
@@ -121,6 +146,15 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+                <div class="card d-none d-md-block">
+                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="carousel-item">
@@ -152,6 +186,15 @@
                         <a href="#" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
+                <div class="card d-none d-md-block">
+                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="carousel-item">
@@ -176,6 +219,15 @@
                 </div>
                 <div class="card d-none d-md-block">
                     <img src="images/bg_3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card d-none d-md-block">
+                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
@@ -195,9 +247,21 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+<div>
+    <button type="button" class="btn btn-lg btn-info" style="">Go to Payment Section</button>
+</div>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"-->
+<!--        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"-->
+<!--        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"-->
+<!--        crossorigin="anonymous"></script>-->
+
 </body>
 </html>
