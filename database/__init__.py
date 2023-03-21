@@ -9,3 +9,7 @@ Session = sessionmaker(bind=engine)
 
 # Use the Session class to create a session object
 session = Session()
+
+
+if __name__ == '__main__':
+    print(session)
