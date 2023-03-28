@@ -1,5 +1,6 @@
 from database import session
 from database.models import Applicants, University, AdmissionGroup, Payment, Application, Exam
+from uuid import uuid4
 
 applicants = []
 
@@ -97,7 +98,205 @@ university = [
     },
 ]
 
-admission_group = []
+admission_group = [
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
+        'group_name': 'University of Dhaka, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
+        'group_name': 'University of Dhaka, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
+        'group_name': 'University of Dhaka, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
+        'group_name': 'University of Dhaka, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
+        'group_name': 'University of Rajshahi, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
+        'group_name': 'University of Rajshahi, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
+        'group_name': 'University of Rajshahi, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
+        'group_name': 'University of Rajshahi, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
+        'group_name': 'University of Chittagong, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
+        'group_name': 'University of Chittagong, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
+        'group_name': 'University of Chittagong, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
+        'group_name': 'University of Chittagong, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
+        'group_name': 'Jahangirnagar University, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
+        'group_name': 'Jahangirnagar University, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
+        'group_name': 'Jahangirnagar University, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
+        'group_name': 'Jahangirnagar University, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
+        'group_name': 'Khulna University, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
+        'group_name': 'Khulna University, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
+        'group_name': 'Khulna University, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
+        'group_name': 'Khulna University, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
+        'group_name': 'National University, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
+        'group_name': 'National University, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
+        'group_name': 'National University, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
+        'group_name': 'National University, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
+        'group_name': 'Bangladesh Agricultural University, Group-A',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
+        'group_name': 'Bangladesh Agricultural University, Group-B',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
+        'group_name': 'Bangladesh Agricultural University, Group-C',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
+        'group_name': 'Bangladesh Agricultural University, Group-D',
+        'exam_datetime': None,
+        'application_fee': None
+    },
+
+]
 
 payment = []
 
