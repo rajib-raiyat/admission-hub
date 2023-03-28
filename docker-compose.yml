@@ -5,7 +5,7 @@ services:
     container_name: admission-hub
     build: .
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       FLASK_ENV: development
       FLASK_APP: main.py

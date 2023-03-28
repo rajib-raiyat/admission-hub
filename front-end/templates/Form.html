@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Form</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" rel="stylesheet">
+    <style>
+        .navbar-brand:hover img {
+            transform: translateX(-5px) translateY(-5px) translateX(5px) translateY(5px);
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5%;
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-radius 0.3s ease-out;
+        }
+
+        .btn-primary {
+            background-color: #7476c9;
+
+        }
+
+        .floating-label {
+            position: relative;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        .floating-label label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 14px;
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            color: #6c757d;
+        }
+
+        .floating-label .form-control {
+            border: none;
+            border-bottom: 1px solid #6c757d;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
+            height: auto;
+            font-size: 16px;
+        }
+
+        .floating-label .form-control:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .floating-label .form-control:focus ~ label {
+            top: -1rem;
+            left: 0;
+            font-size: 12px;
+            color: #007bff;
+        }
+
+        .btn-green {
+            background-color: #fff6e5;
+            border-color: #fff6e5;
+            color: #000000;
+        }
+
+        .dropdown-menu {
+            width: 350px; /* or any other value you prefer */
+        }
+
+        .btn-dark {
+            color: black;
+            background-color: #4ABDAC;
+
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body style="background-color: #f0eade;">
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #fff6e5;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
+        </a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>
+
+                    <div class="d-flex justify-content-center align-items-center order-md-2">
+                        <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
+                            <img alt="Mujib Logo" height="60" src="../assets/mujib-logo.png" width="160">
+                        </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Applicant Full Name</label>
+                    <input type="text" class="form-control" id="firstName" aria-label="Disabled input example"
+                           value="Md. Monjor Morshed" disabled
+                           readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">HSC Result</label>
+                    <input type="text" class="form-control" id="lastName" aria-label="Disabled input example"
+                           value="5.00" disabled
+                           readonly>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="companyName" class="form-label">HSC Roll</label>
+                    <input type="text" class="form-control" id="companyName" aria-label="Disabled input example"
+                           value="123456"
+                           disabled readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="address" class="form-label">HSC Reg No.</label>
+                    <input type="text" class="form-control" id="address" aria-label="Disabled input example" disabled
+                           value="1234567890"
+                           readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="email" class="form-label">HSC Board</label>
+                    <input type="email" class="form-control" id="email" aria-label="Disabled input example"
+                           value="Dhaka" disabled
+                           readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="phone" class="form-label">HSC Year</label>
+                    <input type="tel" class="form-control" id="phone" aria-label="Disabled input example" value="2017"
+                           disabled
+                           readonly>
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; text-align: right;">
+            <button class="btn btn-lg btn-dark mb-3 border-white" onclick="window.location.href='/university-list'"
+                    type="submit">Confirm
+            </button>
+        </div>
+
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>
