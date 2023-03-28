@@ -254,3 +254,6 @@ poetry.toml
 
 # ruff
 .ruff_cache/
+
+# code files
+database/rough.py
