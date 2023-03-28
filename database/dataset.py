@@ -116,8 +116,8 @@ def create_data():
         'exam': [exam, Exam]
     }
 
-    for table in tables:
-        session.add(tables[table][1](**tables[table][0]))
+    for i in university:
+        session.add(University(**i))
         try:
             session.commit()
         except Exception:

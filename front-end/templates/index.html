@@ -111,41 +111,47 @@
                 <ul class="navbar-nav ms-auto justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>
+                        <button class="btn btn-primary" onclick="window.location.href='/std-login'" type="button">
+                            Student Login
+                        </button>
+                        <button class="btn btn-primary" onclick="window.location.href='/uni-login'" type="button">
+                            University Login
+                        </button>
 
-                        <div class="dropdown">
-                            <a aria-expanded="false" class="btn btn-green dropdown-toggle fs-5 nav-item"
-                               data-bs-auto-close="outside"
-                               data-bs-toggle="dropdown" href="#" id="universityDropdown"
-                               role="button">
-                                Login
-                            </a>
-                            <form class="dropdown-menu p-4">
-                                <div id="alert-container"></div>
+                        <!--                        <div class="dropdown">-->
+                        <!--                            <a aria-expanded="false" class="btn btn-green dropdown-toggle fs-5 nav-item"-->
+                        <!--                               data-bs-auto-close="outside"-->
+                        <!--                               data-bs-toggle="dropdown" href="#" id="universityDropdown"-->
+                        <!--                               role="button">-->
+                        <!--                                Login-->
+                        <!--                            </a>-->
+                        <!--                            <form class="dropdown-menu p-4">-->
+                        <!--                                <div id="alert-container"></div>-->
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="exampleDropdownFormEmail2">Email address</label>
-                                    <input class="form-control" id="exampleDropdownFormEmail2"
-                                           placeholder="Email address"
-                                           type="email">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="exampleDropdownFormPassword2">Password</label>
-                                    <input class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"
-                                           type="password">
-                                </div>
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="dropdownCheck2" type="checkbox">
-                                        <label class="form-check-label" for="dropdownCheck2">
-                                            Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" onclick="handleSubmit(event)" type="button">Sign in
-                                </button>
-                                <a class="dropdown-item" href="#">Forgot password?</a>
-                            </form>
-                        </div>
+                        <!--                                <div class="mb-3">-->
+                        <!--                                    <label class="form-label" for="exampleDropdownFormEmail2">Email address</label>-->
+                        <!--                                    <input class="form-control" id="exampleDropdownFormEmail2"-->
+                        <!--                                           placeholder="Email address"-->
+                        <!--                                           type="email">-->
+                        <!--                                </div>-->
+                        <!--                                <div class="mb-3">-->
+                        <!--                                    <label class="form-label" for="exampleDropdownFormPassword2">Password</label>-->
+                        <!--                                    <input class="form-control" id="exampleDropdownFormPassword2" placeholder="Password"-->
+                        <!--                                           type="password">-->
+                        <!--                                </div>-->
+                        <!--                                <div class="mb-3">-->
+                        <!--                                    <div class="form-check">-->
+                        <!--                                        <input class="form-check-input" id="dropdownCheck2" type="checkbox">-->
+                        <!--                                        <label class="form-check-label" for="dropdownCheck2">-->
+                        <!--                                            Remember me-->
+                        <!--                                        </label>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                        <!--                                <button class="btn btn-primary" onclick="handleSubmit(event)" type="button">Sign in-->
+                        <!--                                </button>-->
+                        <!--                                <a class="dropdown-item" href="#">Forgot password?</a>-->
+                        <!--                            </form>-->
+                        <!--                        </div>-->
                     </div>
                     <div class="d-flex justify-content-center align-items-center order-md-2">
                         <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
@@ -234,11 +240,9 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-light" data-bs-dismiss="modal" type="button">Close</button>
-                            <a href="Form.html">
-                                <button class="btn btn-primary" type="button">
-                                    Submit
-                                </button>
-                            </a>
+                            <button class="btn btn-primary" onclick="window.location.href='/confirm-form'"
+                                    type="button">Submit
+                            </button>
                         </div>
                     </div>
                 </div>
