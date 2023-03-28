@@ -1,5 +1,8 @@
 from flask import Flask, render_template
 
+from database import session
+from database.models import University
+
 app = Flask(__name__, template_folder='front-end/templates', static_folder='front-end/assets')
 
 
@@ -10,7 +13,8 @@ def hello_world():
 
 @app.route("/university-list")
 def university():
-    return render_template('University.html')
+    data = session.query(University).all()
+    return render_template('University.html', data=data)
 
 
 @app.route("/confirm-form")
