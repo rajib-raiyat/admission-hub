@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>AdmissionHub</title>
+    <title>University</title>
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -33,10 +33,9 @@
             box-shadow: 0 0 0 0.2rem rgba(252, 139, 60, 0.5)
         }
 
-        .btn-info{
+        .btn-info {
 
         }
-
 
 
         .cards-wrapper {
@@ -104,7 +103,7 @@
 </head>
 <body class="" style="margin-right: 5%; margin-left: 5%; margin-top: 2%; background-color: #fff6e5">
 <div class="text-center">
-    <h3>Choose Your Desired University To Get Admit</h3>
+    <h3>Choose Your Desired University To Apply</h3>
     <hr class="" style="height:2px;width: 75% ;border-width:0;color:black;background-color:gray">
 
 
@@ -125,7 +124,67 @@
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Go somewhere
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Choose your desired groups</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="defaultCheck1">
+                                                    <label class="form-check-label" for="defaultCheck1">
+                                                        Group-1
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="defaultCheck2">
+                                                    <label class="form-check-label" for="defaultCheck2">
+                                                        Group-2
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="defaultCheck3">
+                                                    <label class="form-check-label" for="defaultCheck3">
+                                                        Group-3
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                           id="defaultCheck4">
+                                                    <label class="form-check-label" for="defaultCheck4">
+                                                        Group-4
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+                                        <button type="button" class="btn btn-primary">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="card d-none d-md-block">
@@ -135,6 +194,7 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>
+
                     </div>
                 </div>
                 <div class="card d-none d-md-block">
