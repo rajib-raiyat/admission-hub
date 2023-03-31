@@ -43,7 +43,7 @@ def university():
         }
 
         data.append(temp)
-    return render_template('list_uni.html', data=data)
+    return render_template('University.html', data=data)
 
 
 @app.route("/confirm-form")
@@ -76,7 +76,7 @@ def pay():
         'store_passwd': 'admis6422b090c562a@ssl',
         'success_url': f'http://127.0.0.1:5000/pay-success',
         'fail_url': f'http://127.0.0.1:5000/pay-failed',
-        'cancel_url': f'http://127.0.0.1:5000/pay-cancle',
+        'cancel_url': f'http://127.0.0.1:5000/pay-cancel',
         'tran_id': uuid.uuid4(),
         'cus_name': 'halum',
         'cus_email': 'halum@admin.com',

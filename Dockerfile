@@ -45,6 +45,7 @@ ENV PATH=/home/user-admission/.local/bin:$PATH \
 COPY main.py .
 COPY .env .
 COPY front-end/ front-end/
+COPY database/ database/
 
 # switch user to root user
 USER root
