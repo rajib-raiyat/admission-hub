@@ -1,89 +1,66 @@
 <!--<!DOCTYPE html>-->
 <!--<html>-->
 <!--<head>-->
-<!--    <title>Student Admit Card</title>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta content="width=device-width, initial-scale=1.0" name="viewport">-->
-<!--    <style>-->
-<!--        .container {-->
-<!--            max-width: 800px;-->
-<!--            margin: 0 auto;-->
-<!--            padding: 20px;-->
-<!--            border: 1px solid #ccc;-->
-<!--            text-align: center;-->
-<!--        }-->
-
-<!--        .student-photo {-->
-<!--            max-width: 200px;-->
-<!--            max-height: 200px;-->
-<!--            margin: 20px auto;-->
-<!--            border-radius: 50%;-->
-<!--            border: 2px solid #ccc;-->
-<!--            overflow: hidden;-->
-<!--        }-->
-
-<!--        .qrcode {-->
-<!--            max-width: 200px;-->
-<!--            margin: 20px auto;-->
-<!--        }-->
-<!--    </style>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div class="container">-->
-<!--    <h1>Student Admit Card</h1>-->
-<!--    <p><strong>Name:</strong> John Doe</p>-->
-<!--    <p><strong>Date:</strong> March 31, 2023</p>-->
-<!--    <div class="student-photo">-->
-<!--        <img alt="Student Photo" src="student-photo.jpg">-->
-<!--    </div>-->
-<!--    <div class="qrcode">-->
-<!--        <img alt="QR Code" src="qrcode.png">-->
-<!--    </div>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
-
-
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
 <!--    <meta charset="UTF-8">-->
 <!--    <title>Admit Card Template</title>-->
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
 <!--    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"-->
 <!--          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" rel="stylesheet">-->
+<!--    <style>-->
+<!--        .university-seal {-->
+<!--            float: right;-->
+<!--            margin-top: -50px;-->
+<!--            margin-right: 50px;-->
+<!--            height: 100px;-->
+<!--        }-->
+
+<!--        .student-photo {-->
+<!--            float: right;-->
+<!--            width: 150px;-->
+<!--            height: 150px;-->
+<!--            margin-left: 20px;-->
+<!--        }-->
+<!--    </style>-->
 <!--</head>-->
 <!--<body>-->
 <!--<div class="container mt-4">-->
 <!--    <div class="card">-->
-<!--        <div class="card-header text-center">-->
-<!--            <h1>Admit Card</h1>-->
+<!--        <div class="card-header d-flex justify-content-between align-items-center">-->
+<!--            <div>-->
+<!--                <img src="../assets/homepage-logo.PNG" alt="" width="150">-->
+<!--            </div>-->
+<!--            <div class="text-center">-->
+<!--                <h1>Admit Card</h1>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <img src="../assets/mujib-logo.png" alt="" width="150">-->
+<!--            </div>-->
 <!--        </div>-->
 <!--        <div class="card-body">-->
-<!--            <div class="row">-->
+<!--            <div class="row mb-4">-->
 <!--                <div class="col-md-6">-->
-<!--                    <p><strong>University Name:</strong> University of XYZ</p>-->
-<!--                    <p><strong>Course Name:</strong> Bachelor of Science in Computer Science</p>-->
-<!--                    <p><strong>Exam Date:</strong> April 15, 2023</p>-->
-<!--                    <p><strong>Exam Time:</strong> 9:00 AM - 12:00 PM</p>-->
-<!--                    <p><strong>Exam Center:</strong> ABC School, New York</p>-->
+<!--                    <h5><strong>Name:</strong> John Doe</h5>-->
+<!--                    <p><strong>Registration Number:</strong> 123456789</p>-->
+<!--                    <p><strong>Roll Number:</strong> XYZ123</p>-->
 <!--                </div>-->
 <!--                <div class="col-md-6">-->
-<!--                    <img src="university_logo.png" alt="University Logo" class="img-fluid float-end" width="200">-->
+<!--                    <img src="../assets/random.PNG" alt="Student Photo" class="student-photo">-->
 <!--                </div>-->
 <!--            </div>-->
 <!--            <hr>-->
-<!--            <div class="row">-->
+<!--            <div class="row mb-4">-->
 <!--                <div class="col-md-6">-->
-<!--                    <p><strong>Name:</strong> John Doe</p>-->
-<!--                    <p><strong>Registration Number:</strong> 123456789</p>-->
-<!--                    <p><strong>Roll Number:</strong> XYZ123</p>-->
-<!--                    <p><strong>Photo ID:</strong> Passport</p>-->
+<!--                    <p><strong>University Name:</strong> University of Dhaka</p>-->
+<!--                    <p><strong>Group Name:</strong>Ka Group</p>-->
+<!--                    <p><strong>Exam Date:</strong> April 15, 2023</p>-->
+<!--                    <p><strong>Exam Time:</strong> 9:00 AM - 12:00 PM</p>-->
+<!--                    <p><strong>Exam Center:</strong> Kola Bhavan, DU</p>-->
 <!--                </div>-->
 <!--                <div class="col-md-6">-->
-<!--                    <img src="student_photo.png" alt="Student Photo" class="img-fluid float-end" width="200">-->
+<!--                    <img src="../assets/du_qr.png" alt="Student Photo" class="student-photo">-->
 <!--                </div>-->
 <!--            </div>-->
+
 <!--        </div>-->
 <!--        <div class="card-footer text-center">-->
 <!--            <p>This admit card must be carried to the examination center along with a valid photo ID proof.</p>-->
@@ -116,6 +93,11 @@
             height: 150px;
             margin-left: 20px;
         }
+
+        .card {
+            width: 210mm;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -132,34 +114,18 @@
                 <img src="../assets/mujib-logo.png" alt="" width="150">
             </div>
         </div>
-
         <div class="card-body">
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <h5><strong>Name:</strong> John Doe</h5>
-                    <p><strong>Registration Number:</strong> 123456789</p>
-                    <p><strong>Roll Number:</strong> XYZ123</p>
+                    <h5><strong>Applicant Name:</strong> Komol Kunty Rajib</h5>
+                    <p><strong>Applicant ID:</strong> 000000001</p>
+
                 </div>
                 <div class="col-md-6">
                     <img src="../assets/random.PNG" alt="Student Photo" class="student-photo">
                 </div>
             </div>
-
-
             <hr>
-            <!--            <div class="row mb-4">-->
-            <!--                <div class="col-md-12">-->
-            <!--                    <p><strong>University Name:</strong> University of Dhaka</p>-->
-            <!--                    <p><strong>Group Name:</strong>Ka Group</p>-->
-            <!--                    <p><strong>Exam Date:</strong> April 15, 2023</p>-->
-            <!--                    <p><strong>Exam Time:</strong> 9:00 AM - 12:00 PM</p>-->
-            <!--                    <p><strong>Exam Center:</strong> Kola Bhavan, DU</p>-->
-
-            <!--                    <div class="col-md-12">-->
-            <!--                        <img src="../assets/du_qr.png" alt="University Seal" class="university-seal">-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
             <div class="row mb-4">
                 <div class="col-md-6">
                     <p><strong>University Name:</strong> University of Dhaka</p>
