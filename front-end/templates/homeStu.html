@@ -1,76 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sidebar 09</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--    <style>-->
+    <!--        body {-->
+    <!--            overflow-x: hidden;-->
+    <!--        }-->
 
+    <!--        .wrapper {-->
+    <!--            display: flex;-->
+    <!--            width: 100%;-->
+    <!--        }-->
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <!--        #sidebar {-->
+    <!--            background-color: #efdab8;-->
+    <!--            padding: 20px;-->
+    <!--            height: 100%;-->
+    <!--            position: fixed;-->
+    <!--            top: 0;-->
+    <!--            left: 0;-->
+    <!--            overflow-y: auto;-->
+    <!--            z-index: 999;-->
+    <!--            transition: all 0.3s;-->
+    <!--        }-->
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!--        #sidebar a {-->
+    <!--            color: #0e0e0e;-->
+    <!--            text-decoration: none;-->
+    <!--        }-->
+
+    <!--        #sidebar ul li {-->
+    <!--            padding: 10px 0;-->
+    <!--            border-bottom: 1px solid #555;-->
+    <!--        }-->
+
+    <!--        #sidebar ul li:last-child {-->
+    <!--            border-bottom: none;-->
+    <!--        }-->
+
+    <!--        #content {-->
+    <!--            width: 100%;-->
+    <!--            padding: 20px;-->
+    <!--            background-color: #efdab8;-->
+    <!--            margin-left: 120px;-->
+    <!--            transition: all 0.3s;-->
+    <!--        }-->
+
+    <!--        @media (max-width: 768px) {-->
+    <!--            #sidebar {-->
+    <!--                transform: translateX(-250px);-->
+    <!--            }-->
+
+    <!--            #content {-->
+    <!--                margin-left: 0;-->
+    <!--            }-->
+
+    <!--            .wrapper.active #sidebar {-->
+    <!--                transform: translateX(0);-->
+    <!--            }-->
+
+    <!--            .wrapper.active #content {-->
+    <!--                margin-left: 250px;-->
+    <!--            }-->
+    <!--        }-->
+
+    <!--        .toggle-btn {-->
+    <!--            position: absolute;-->
+    <!--            top: 20px;-->
+    <!--            right: 20px;-->
+    <!--            cursor: pointer;-->
+    <!--            z-index: 999;-->
+    <!--            display: none;-->
+    <!--        }-->
+
+    <!--        .toggle-btn span {-->
+    <!--            display: block;-->
+    <!--            width: 30px;-->
+    <!--            height: 5px;-->
+    <!--            background-color: #ccc;-->
+    <!--            margin: 5px 0;-->
+    <!--        }-->
+    <!--    </style>-->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        #sidebar {
+            background-color: #efdab8;
+            padding: 2%;
+            height: 100%;
+            width: 20%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        #sidebar a {
+            color: #0e0e0e;
+            text-decoration: none;
+
+        }
+
+        #sidebar ul li {
+            padding: 1% 0;
+            border-bottom: 1px solid #555;
+        }
+
+        #sidebar ul li:last-child {
+            border-bottom: none;
+        }
+
+        #content {
+            width: 100%;
+            padding: 2%;
+            background-color: #ffffff;
+            margin-left: 20%;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            #sidebar {
+                transform: translateX(-100%);
+            }
+
+            #content {
+                margin-left: 0;
+            }
+
+            .wrapper.active #sidebar {
+                transform: translateX(0);
+            }
+
+            .wrapper.active #content {
+                margin-left: 100%;
+            }
+        }
+
+        .toggle-btn {
+            position: absolute;
+            top: 2%;
+            right: 2%;
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+        }
+
+        .toggle-btn span {
+            display: block;
+            width: 30%;
+            height: 5%;
+            background-color: #ccc;
+            margin: 5% 0;
+        }
+    </style>
 </head>
 <body>
-
-<div class="wrapper d-flex align-items-stretch">
+<div class="wrapper">
     <nav id="sidebar">
-        <div class="custom-menu">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-            </button>
-        </div>
-        <div class="img bg-wrap text-center py-4" style="background-image: url('images/bg_a1.jpg');">
-            <div class="user-logo">
-                <div class="img" style="background-image: url('images/logo.jpg');"></div>
-                <h3>Catriona Henderson</h3>
-            </div>
-        </div>
-        <ul class="list-unstyled components mb-5">
-            <li class="active">
-                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+        <ul class="list-unstyled components">
+            <li class="nav-item active"><a class="nav-link" href="#">Dashboard</a></li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">View Result</a>
             </li>
-            <li>
-                <a href="#"><span class="fa fa-download mr-3 notif"><small
-                        class="d-flex align-items-center justify-content-center">5</small></span> Download</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-gift mr-3"></span> Gift Code</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-trophy mr-3"></span> Top Review</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-cog mr-3"></span> Settings</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-support mr-3"></span> Support</a>
-            </li>
-            <li>
-                <a href="#"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Logout</a>
             </li>
         </ul>
-
     </nav>
 
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5 pt-5">
-        <h2 class="mb-4">Sidebar #09</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+    <div id="content">
+        <h1>Student Result</h1>
+        <!-- Add your content here -->
+        <h2>Dhaka University</h2>
+        <p><strong>Ka Group:</strong> Pass</p>
+        <p><strong>Kha Group:</strong> Position 1234th</p>
+        <p><strong>Ga Group:</strong> Fail</p>
+        <p><strong>Gha Group:</strong> Position 5678th</p>
+
+        <h2>Jahangirnagar University</h2>
+        <p><strong>Ka Group:</strong> Position 2345th</p>
+        <p><strong>Kha Group:</strong> Fail</p>
+        <p><strong>Ga Group:</strong> Position 3456th</p>
+        <p><strong>Gha Group:</strong> Pass</p>
+
+        <h2>Rajshahi University</h2>
+        <p><strong>Ka Group:</strong> Position 4567th</p>
+        <p><strong>Kha Group:</strong> Pass</p>
+        <p><strong>Ga Group:</strong> Position 7890th</p>
+        <p><strong>Gha Group:</strong> Fail</p>
+
+        <h2>Chittagong University</h2>
+        <p><strong>Ka Group:</strong> Fail</p>
+        <p><strong>Kha Group:</strong> Position 8901th</p>
+        <p><strong>Ga Group:</strong> Pass</p>
+        <p><strong>Gha Group:</strong> Position 2345th</p>
+        <button class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
 </div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

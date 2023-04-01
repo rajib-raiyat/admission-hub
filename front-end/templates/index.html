@@ -19,10 +19,23 @@
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-radius 0.3s ease-out;
         }
 
-        /*.btn-primary {*/
-        /*    background-color: #7476c9;*/
+        .custom-button {
+            background-color: #fb771a;
+            color: #ffffff;
+            margin: 5px;
+        }
 
-        /*}*/
+        .custom-button:hover {
+            color: #fff;
+            background-color: #eb6304;
+            border-color: #de5e04
+        }
+
+        .custom-button.focus, .custom-button:focus {
+            -webkit-box-shadow: 0 0 0 0.2rem rgba(252, 139, 60, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(252, 139, 60, 0.5)
+        }
+
 
         .floating-label {
             position: relative;
@@ -72,6 +85,8 @@
             width: 350px; /* or any other value you prefer */
         }
 
+
+
     </style>
     <script>
         // Function to handle form submission
@@ -99,7 +114,7 @@
 <body class="d-flex flex-column min-vh-100">
 <!-- Navigation Bar -->
 <div>
-    <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
+   <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
@@ -111,10 +126,10 @@
                 <ul class="navbar-nav ms-auto justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>
-                        <button class="btn btn-primary" onclick="window.location.href='/std-login'" type="button">
+                        <button class="btn custom-button" onclick="window.location.href='/std-login'" type="button">
                             Student Login
                         </button>
-                        <button class="btn btn-primary" onclick="window.location.href='/uni-login'" type="button">
+                        <button class="btn custom-button" onclick="window.location.href='/uni-login'" type="button">
                             University Login
                         </button>
 
@@ -161,22 +176,22 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav >
 
     <!-- Jumbotron -->
     <div class="jumbotron-fluid text-lg-center d-flex justify-content-center align-items-center image-fluid  " style="
-    background-image: url('../assets/bg_3_1.jpg');
+    background-image: url('../assets/home1.jpg');
     height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;">
 
-        <div class="container-xxl">
+        <div class="container-lg">
             <h1 class="display-4 text-light" style=" filter: "><b>AdmissionHub</b></h1>
-            <p class="lead text-light"><b>One stop solution for university admissions.</b></p>
+            <h4 class="text-light"><b>One stop solution for university admissions.</b></h4>
             <!-- Button trigger modal -->
-            <button class="btn btn-lg btn-block btn-primary" data-bs-target="#staticBackdrop" data-bs-toggle="modal"
+            <button class="btn btn-lg btn-block custom-button" data-bs-target="#staticBackdrop" data-bs-toggle="modal"
                     type="button">Apply
                 Now
             </button>
@@ -239,7 +254,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-light" data-bs-dismiss="modal" type="button">Close</button>
+                            <button class="btn btn-light " data-bs-dismiss="modal" type="button">Close</button>
                             <button class="btn btn-primary" onclick="window.location.href='/confirm-form'"
                                     type="button">Submit
                             </button>
