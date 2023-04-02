@@ -7,6 +7,7 @@ Base = declarative_base()
 
 
 class Applicants(Base):
+
     __tablename__ = 'applicants'
 
     applicant_id = Column(VARCHAR(36), primary_key=True)
@@ -40,33 +41,18 @@ class AdmissionGroup(Base):
     admission_group_id = Column(VARCHAR(36), primary_key=True)
     university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
     group_name = Column(Text)
-    exam_datetime = Column(Text)  # datetime
-    application_fee = Column(Integer)
+    # application_fee = Column(Integer)
 
 
 class Payment(Base):
     __tablename__ = 'payment'
 
     transaction_id = Column(VARCHAR(36), primary_key=True)
-    applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
+    # applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
     student_id = Column(VARCHAR(36))
     payment_amount = Column(Text)
     payment_status = Column(Text)
     payment_time = Column(Date)
-
-
-class Application(Base):
-    __tablename__ = 'application'
-
-    application_id = Column(VARCHAR(36), primary_key=True)
-    applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
-    status = Column(Text)
-    # university_id = Column(VARCHAR(36))
-    admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
-    transaction_id = Column(VARCHAR(36))
-
-    marks = Integer()
-    exam_id = Column(VARCHAR(36))
 
 
 class Exam(Base):
@@ -75,10 +61,26 @@ class Exam(Base):
     exam_id = Column(VARCHAR(36), primary_key=True)
     venue_id = Column(VARCHAR(36))
     venue_name = Column(Text)
+    exam_datetime = Column(Text)  # datetime
     # students = Column(Text)  # list
     # applicantions = Column(Text)  # list
-    university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
+    # university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
+    exam_fee = Column(Integer)
     admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
+
+
+class Application(Base):
+    __tablename__ = 'application'
+
+    application_id = Column(VARCHAR(36), primary_key=True)
+    applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
+    exam_id = Column(VARCHAR(36), ForeignKey(Exam.exam_id, ondelete='CASCADE'))
+    status = Column(Text)
+    # university_id = Column(VARCHAR(36))
+    # admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
+    transaction_id = Column(VARCHAR(36))
+
+    marks = Integer()
 
 
 if __name__ == '__main__':
