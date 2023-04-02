@@ -2,21 +2,21 @@ import json
 import uuid
 
 import requests as requests
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 
 from database import session
-from database.models import University, AdmissionGroup
+from database.models import University, AdmissionGroup, Applicants
 
 app = Flask(__name__, template_folder='front-end/templates', static_folder='front-end/assets')
 
 
 @app.route("/")
-def hello_world():
+def index():
     return render_template('index.html')
 
 
-@app.route("/university-list")
-def university():
+@app.route("/university-list/<applicant_id>")
+def university(applicant_id):
     uni = session.query(University).all()
 
     data = []
@@ -48,9 +48,55 @@ def university():
 
 @app.route("/confirm-form")
 def confirm_form():
-    data = request.args.get('data')
-    print(data)
-    return render_template('Form.html')
+    hsc_roll = request.args.get('hscRoll')
+    hsc_reg = request.args.get('hscReg')
+    hsc_year = request.args.get('hscYear')
+    hsc_board = request.args.get('hscBoard')
+
+    get_applicant = session.query(Applicants).filter_by(
+        hsc_roll=hsc_roll,
+        hsc_reg=hsc_reg,
+        hsc_board=hsc_board,
+        hsc_year=hsc_year
+    ).first()
+
+    if not get_applicant:
+        return render_template('common-error.html', error_message='No applicant found')
+
+    if get_applicant.username and get_applicant.password:
+        return render_template('common-error.html', error_message='Already have a account please login.')
+
+    return render_template('Form.html', data=get_applicant)
+
+
+@app.route("/create-user")
+def create_user():
+    applicant_id = request.args.get('userId')
+    username = request.args.get('username')
+    password = request.args.get('pass')
+
+    if not username or not password or not applicant_id:
+        return render_template('common-error.html', error_message='No username or password found.')
+
+    get_applicant = session.query(Applicants).filter_by(
+        applicant_id=applicant_id
+    ).first()
+
+    if get_applicant.username and get_applicant.password:
+        return render_template('common-error.html', error_message='Already have a account please login.')
+
+    session.query(Applicants).filter_by(
+        applicant_id=applicant_id
+    ).update(
+        {'username': username, 'password': password}
+    )
+
+    try:
+        session.commit()
+    except Exception:
+        session.rollback()
+
+    return redirect(url_for('university', applicant_id=applicant_id))
 
 
 @app.route("/pay")

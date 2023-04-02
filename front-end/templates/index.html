@@ -81,40 +81,14 @@
             color: #000000;
         }
 
-        .dropdown-menu {
-            width: 350px; /* or any other value you prefer */
-        }
-
-
 
     </style>
-    <script>
-        // Function to handle form submission
-        function handleSubmit(event) {
-            event.preventDefault(); // prevent the form from submitting
-            const email = document.getElementById('exampleDropdownFormEmail2').value;
-            const password = document.getElementById('exampleDropdownFormPassword2').value;
-
-            if (email.trim() === '' || password.trim() === '') {
-                document.getElementById('alert-container').innerHTML = `
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Please fill up all the fields!
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                      </div>
-                    `;
-            } else {
-                // submit the form
-                document.getElementById('universityDropdownForm').submit();
-            }
-        }
-
-    </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 <!-- Navigation Bar -->
 <div>
-   <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
+    <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
@@ -125,7 +99,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
-<!--                        <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>-->
+                        <!--                        <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>-->
                         <button class="btn custom-button" onclick="window.location.href='/std-login'" type="button">
                             Student Login
                         </button>
@@ -176,7 +150,7 @@
                 </ul>
             </div>
         </div>
-    </nav >
+    </nav>
 
     <!-- Jumbotron -->
     <div class="jumbotron-fluid text-lg-center d-flex justify-content-center align-items-center image-fluid  " style="
@@ -254,10 +228,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-light " data-bs-dismiss="modal" type="button">Close</button>
-                            <button class="btn btn-primary" onclick="window.location.href='/confirm-form'"
-                                    type="button">Submit
-                            </button>
+                            <button class="btn btn-light" data-bs-dismiss="modal" type="button">Close</button>
+                            <button class="btn btn-primary" onclick="submitForm()" type="button">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -271,6 +243,18 @@
         <p class="mb-0">Copyright © 2023 AdmissionHub. All rights reserved.</p>
     </footer>
 </div>
+<script>
+    function submitForm() {
+        const hscRoll = encodeURIComponent(document.getElementById('hscRoll').value);
+        const hscReg = encodeURIComponent(document.getElementById('hscReg').value);
+        const hscYear = encodeURIComponent(document.getElementById('hscYear').value);
+        const hscBoard = encodeURIComponent(document.getElementById('hscBoard').value);
+
+        // Redirect to the confirmation page
+        window.location.href = '/confirm-form?hscRoll=' + hscRoll + '&hscReg=' + hscReg + '&hscYear=' + hscYear + '&hscBoard=' + hscBoard;
+    }
+</script>
+
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

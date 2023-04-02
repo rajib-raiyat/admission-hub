@@ -23,6 +23,8 @@ class Applicants(Base):
     phone_number = Column(Text)
     father_name = Column(Text)
     mother_name = Column(Text)
+    username = Column(Text)
+    password = Column(Text)
 
 
 class University(Base):
