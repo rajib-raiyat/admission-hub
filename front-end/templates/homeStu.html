@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+</head>
+<body >
+<nav class="navbar navbar-expand-sm navbar-light " style="background-color: #fff6e5;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
+        </a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <li class="nav-item active"><a class="nav-link" href="#">Application</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="#">Result</a></li>
+
+                    <button class="btn custom-button" onclick="window.location.href='/logout'" type="button">
+                        Logout
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center align-items-center order-md-2">
+                    <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
+                        <img alt="Mujib Logo" height="60" src="../assets/mujib-logo.png" width="160">
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--<div id="content">-->
+
+<!--    &lt;!&ndash; Add your content here &ndash;&gt;-->
+<!--    <h2>Dhaka University</h2>-->
+<!--    <p><strong>Ka Group:</strong> Pass</p>-->
+<!--    <p><strong>Kha Group:</strong> Position 1234th</p>-->
+<!--    <p><strong>Ga Group:</strong> Fail</p>-->
+<!--    <p><strong>Gha Group:</strong> Position 5678th</p>-->
+
+<!--    <h2>Jahangirnagar University</h2>-->
+<!--    <p><strong>Ka Group:</strong> Position 2345th</p>-->
+<!--    <p><strong>Kha Group:</strong> Fail</p>-->
+<!--    <p><strong>Ga Group:</strong> Position 3456th</p>-->
+<!--    <p><strong>Gha Group:</strong> Pass</p>-->
+
+<!--    <h2>Rajshahi University</h2>-->
+<!--    <p><strong>Ka Group:</strong> Position 4567th</p>-->
+<!--    <p><strong>Kha Group:</strong> Pass</p>-->
+<!--    <p><strong>Ga Group:</strong> Position 7890th</p>-->
+<!--    <p><strong>Gha Group:</strong> Fail</p>-->
+
+<!--    <h2>Chittagong University</h2>-->
+<!--    <p><strong>Ka Group:</strong> Fail</p>-->
+<!--    <p><strong>Kha Group:</strong> Position 8901th</p>-->
+<!--    <p><strong>Ga Group:</strong> Pass</p>-->
+<!--    <p><strong>Gha Group:</strong> Position 2345th</p>-->
+<!--    <button class="toggle-btn">-->
+<!--        <span></span>-->
+<!--        <span></span>-->
+<!--        <span></span>-->
+<!--    </button>-->
+<!--</div>-->
+
+<div class="container mt-4">
+    <h2>Exam Results</h2>
+    <table class="table table-striped table-bordered mt-4" style="background-color: white;">
+        <thead>
+        <tr>
+            <th>Exam Name</th>
+            <th>Result</th>
+            <th>Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Dhaka University-Ka Group</td>
+            <td>Pass</td>
+            <td>2nd</td>
+        </tr>
+        <tr>
+            <td>Jahangirnagar University-IT</td>
+            <td>Fail</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>Rajshahi University-Ka Group</td>
+            <td>Pass</td>
+            <td>1st</td>
+        </tr>
+        <tr>
+            <td>Chittagong University-Ka Group</td>
+            <td>Fail</td>
+            <td>N/A</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--<div class="container mt-5">-->
+<!--    <h1 class="mb-5">Exam Results</h1>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <h3>Mathematics Exam</h3>-->
+<!--            <p>Your result: <strong>Pass</strong></p>-->
+<!--            <p>Your position: <strong>2nd</strong></p>-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--            <h3>English Exam</h3>-->
+<!--            <p>Your result: <strong>Fail</strong></p>-->
+<!--            <p>Your position: <strong>N/A</strong></p>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

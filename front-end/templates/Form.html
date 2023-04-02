@@ -18,10 +18,6 @@
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-radius 0.3s ease-out;
         }
 
-        .btn-primary {
-            background-color: #7476c9;
-
-        }
 
         .floating-label {
             position: relative;
@@ -61,28 +57,17 @@
             color: #007bff;
         }
 
-        .btn-green {
-            background-color: #fff6e5;
-            border-color: #fff6e5;
-            color: #000000;
-        }
-
         .dropdown-menu {
             width: 350px; /* or any other value you prefer */
         }
 
-        .btn-dark {
-            color: black;
-            background-color: #4ABDAC;
-
-        }
     </style>
     <script>
 
     </script>
 </head>
 
-<body style="background-color: #f0eade;">
+<body>
 <!-- Navbar -->
 
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #fff6e5;">
@@ -96,7 +81,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                    <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>
+                    <!--                    <li class="nav-item active"><a class="nav-link" href="#">How to Apply</a></li>-->
 
                     <div class="d-flex justify-content-center align-items-center order-md-2">
                         <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
@@ -166,10 +151,36 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="email" class="form-label">User ID</label>
+                    <input type="email" class="form-control" id="userId" aria-label="Disabled input example"
+                           value="123456" disabled
+                           readonly>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Password</label>
+                    <input type="tel" class="form-control" id="password" aria-label="Disabled input example"
+                           value="2017123456"
+                           disabled
+                           readonly>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="formFileSm" class="form-label">Upload a Passport Size Image</label>
+                <input class="form-control form-control-sm" id="formFileSm" type="file">
+            </div>
+        </div>
         <div style="width: 100%; text-align: right;">
-            <button class="btn btn-lg btn-dark mb-3 border-white" onclick="window.location.href='/university-list'"
-                    type="submit">Confirm
+            <button class="btn btn-lg btn-success" onclick="window.location.href='/university-list'"
+                    type="button">Confirm
             </button>
+
         </div>
 
     </form>

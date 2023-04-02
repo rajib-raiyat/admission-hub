@@ -19,7 +19,11 @@
         .btn-primary {
             color: #fff;
             background-color: #fb771a;
-            border-color: #fb771a
+            border-color: #fb771a;
+            position: absolute;
+
+
+
         }
 
         .btn-primary:hover {
@@ -40,20 +44,32 @@
 
         .cards-wrapper {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
         }
 
-        .card img {
+        .card-img-top {
             max-width: 100%;
             max-height: 100%;
+            object-fit: cover;
         }
+
+        .card-body {
+            height: 250px; /* adjust as needed */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
 
         .card {
             margin: 0 0.5em;
             box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
             border: none;
             border-radius: 0;
+            width: 250px; /* adjust as needed */
+
         }
+
 
         .carousel-inner {
             padding: 1em;
@@ -116,12 +132,13 @@
     </ol>
     <div class="carousel-inner" role="listbox">
 
-        <div class="carousel-item active">
+        <div class="carousel-item">
             <div class="cards-wrapper">
                 <div class="card">
                     <img src="images/bg_1.jpg" class="card-img-top" alt="...">
+                    <!--                    <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">-->
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">DU</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
                         <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
@@ -129,130 +146,125 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Go somewhere
                         </button>
-
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="carousel-item active">
+            <div class="cards-wrapper">
+                <div class="card">
+                    <img src="images/bg_2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Dhaka University</h5>
+                        <p class="card-text">The University of Dhaka is a public university located in Dhaka.
+                        </p>
+                        <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <button type="button" class="btn btn-primary "
+                                data-target="#myModal" data-toggle="modal"
+                        >
+                            View Admission Groups
+                        </button>
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
+                                    <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Choose your desired groups</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <h4 class="modal-title">DU - Admission Groups</h4>
+                                        <button class="close" data-dismiss="modal" type="button">&times;</button>
                                     </div>
+                                    <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="defaultCheck1">
-                                                    <label class="form-check-label" for="defaultCheck1">
-                                                        Group-1
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="defaultCheck2">
-                                                    <label class="form-check-label" for="defaultCheck2">
-                                                        Group-2
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="defaultCheck3">
-                                                    <label class="form-check-label" for="defaultCheck3">
-                                                        Group-3
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                           id="defaultCheck4">
-                                                    <label class="form-check-label" for="defaultCheck4">
-                                                        Group-4
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <!--                                        {% for group in uni.admission_group %}-->
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="defaultCheck1"
+                                                   name="admission_group[]"
+                                                   type="checkbox" value="">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Ka Group - 7 January(10.00-1.00) -
+                                                500Tk
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="defaultCheck2"
+                                                   name="admission_group[]"
+                                                   type="checkbox" value="">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Kha Group - 8 January(10.00-1.00) -
+                                                400Tk
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="defaultCheck3"
+                                                   name="admission_group[]"
+                                                   type="checkbox" value="">
+                                            <label class="form-check-label" for="defaultCheck3">
+                                                Ga Group - 9 January(10.00-1.00) -
+                                                300Tk
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="defaultCheck4"
+                                                   name="admission_group[]"
+                                                   type="checkbox" value="">
+                                            <label class="form-check-label" for="defaultCheck4">
+                                                Gha Group - 10 January(10.00-1.00) -
+                                                300Tk
+                                            </label>
+                                        </div>
+                                        <!--                                        {% endfor %}-->
                                     </div>
+                                    <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        <button class="btn btn-secondary" data-dismiss="modal" type="button">Close
                                         </button>
-                                        <button type="button" class="btn btn-primary">Apply</button>
+                                        <button class="btn btn-primary" type="button">Save Changes</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-                </div>
-                <div class="card d-none d-md-block">
-                    <img src="images/bg_2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-
                     </div>
                 </div>
                 <div class="card d-none d-md-block">
                     <img src="images/bg_3.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Jahangirnagar University</h5>
+                        <p class="card-text">JU is a public university located in Dhaka.</p>
+                        <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                            View Admission Groups
+                        </button>
                     </div>
                 </div>
                 <div class="card d-none d-md-block">
-                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
+                    <img src="images/bg_4.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="cards-wrapper">
-                <div class="card">
-                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Rajshahi University</h5>
+                        <p class="card-text">The University of Rajshahi is a
+                            public university located in Rajshahi.</p>
+                        <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                            View Admission Groups
+                        </button>
                     </div>
                 </div>
                 <div class="card d-none d-md-block">
-                    <img src="images/bg_2.jpg" class="card-img-top" alt="...">
+                    <img src="images/bg_5.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card d-none d-md-block">
-                    <img src="images/bg_3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-                <div class="card d-none d-md-block">
-                    <img src="images/bg_1.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">Chittagong University</h5>
+                        <p class="card-text">The University of Chittagong is a public university in
+                            Chittagong.</p>
+                        <!--                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                data-target="#exampleModal">
+                            View Admission Groups
+                        </button>
                     </div>
                 </div>
             </div>
@@ -308,7 +320,7 @@
     </a>
 </div>
 <div style="width: 100%; text-align: right;">
-    <button type="button" class="btn btn-lg btn-info btn" style="">Go to Payment Section</button>
+    <button type="button" class="btn btn-lg btn-info" style="">Go to Payment Section</button>
 </div>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>

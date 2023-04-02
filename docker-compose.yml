@@ -1,19 +1,19 @@
 version: '3'
 
 services:
-  app:
-    container_name: admission-hub
-    build: .
-    ports:
-      - "5001:5000"
-    environment:
-      FLASK_ENV: development
-      FLASK_APP: main.py
-      SECRET_KEY: "@admission-hub@"
-    networks:
-      - network-admission-hub
-    depends_on:
-      - postgres
+#  app:
+#    container_name: admission-hub
+#    build: .
+#    ports:
+#      - "4000:5000"
+#    environment:
+#      FLASK_ENV: development
+#      FLASK_APP: main.py
+#      SECRET_KEY: "@admission-hub@"
+#    networks:
+#      - network-admission-hub
+#    depends_on:
+#      - postgres
 
   postgres:
     image: postgres:15

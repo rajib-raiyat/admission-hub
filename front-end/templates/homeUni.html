@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-light " style="background-color: #fff6e5;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
+        </a>
+        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button class="btn custom-button" onclick="window.location.href='/logout'" type="button">
+                        Logout
+                    </button>
+                </div>
+                <div class="d-flex justify-content-center align-items-center order-md-2">
+                    <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
+                        <img alt="Mujib Logo" height="60" src="../assets/mujib-logo.png" width="160">
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <h3 class="text-center mt-3 mb-5">List of Applicant</h3>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Applicant ID</th>
+                <th>Applicant Group</th>
+                <th>Result</th>
+                <th>Marks(Out of 100)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Komol Kunty Rajib</td>
+                <td>000000001</td>
+                <td>Ka</td>
+                <td>
+                    <form class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <select class="form-select">
+                                <option value="pass">Pass</option>
+                                <option value="fail">Fail</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="text" id="1" class="form-control form-control-sm">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Md. Monjor Morshed</td>
+                <td>000000002</td>
+                <td>Kha</td>
+                <td>
+                    <form class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <select class="form-select">
+                                <option value="pass">Pass</option>
+                                <option value="fail">Fail</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="text" id="2" class="form-control form-control-sm">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Md. Tanvir</td>
+                <td>000000003</td>
+                <td>Kha</td>
+                <td>
+                    <form class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <select class="form-select">
+                                <option value="pass">Pass</option>
+                                <option value="fail">Fail</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="text" id="3" class="form-control form-control-sm">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Zarin Tasnim</td>
+                <td>000000004</td>
+                <td>Ga</td>
+                <td>
+                    <form class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <select class="form-select">
+                                <option value="pass">Pass</option>
+                                <option value="fail">Fail</option>
+                            </select>
+                        </div>
+
+                    </form>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="text" id="4" class="form-control form-control-sm">
+                    </div>
+                </td>
+                <td>
+                    <div class="col-auto">
+                        <input type="submit" value="Submit" class="btn btn-primary btn-sm">
+                    </div>
+                </td>
+            </tr>
+            <!-- add more students here -->
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center">
+        <nav>
+            <ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<script crossorigin="anonymous"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
