@@ -43,7 +43,7 @@ def university(applicant_id):
         }
 
         data.append(temp)
-    return render_template('list_uni.html', data=data)
+    return render_template('uni.html', data=data)
 
 
 @app.route("/confirm-form")
