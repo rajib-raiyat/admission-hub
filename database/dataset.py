@@ -330,7 +330,7 @@ def generate_random_students(num_students):
         hsc_roll = ''.join(random.choice(string.digits) for _ in range(6))
         hsc_reg = ''.join(random.choice(string.digits) for _ in range(11))
         hsc_board = random.choice(['Dhaka', 'Chittagong', 'Rajshahi', 'Barisal', 'Sylhet'])
-        hsc_year = str(random.randint(2000, 2020))
+        hsc_year = str(random.randint(2021, 2023))
         hsc_result = str(random.uniform(2.5, 5.0))[:4]
         hsc_group = random.choice(['Science', 'Commerce', 'Arts'])
 
