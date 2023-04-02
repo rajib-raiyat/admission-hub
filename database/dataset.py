@@ -47,6 +47,13 @@ applicants = [
 
 university = [
     {
+        'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
+        'university_name': 'Bangabandhu Sheikh Mujibur Rahman Science and Technology University',
+        'university_image': f'../assets/university_image//f9606f18-52c2-4664-8f1c-be2db74a9e17.jpg',
+        'university_intro': 'Bangabandhu Sheikh Mujibur Rahman Science and Technology University is one of the oldest and most prestigious universities in '
+                            'Bangladesh.'
+    },
+    {
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'university_name': 'University of Dhaka',
         'university_image': f'../assets/university_image//cddf733e-6e9c-45af-8553-cc266e6aca2d.jpg',
