@@ -6,6 +6,14 @@ from uuid import uuid4
 
 from database import session
 from database.models import Applicants, University, AdmissionGroup
+from random import randint
+
+
+def random_with_n_digits(n):
+    range_start = 10 ** (n - 1)
+    range_end = (10 ** n) - 1
+    return str(randint(range_start, range_end))
+
 
 application_fee = [300, 400, 500, 600, 700, 800, 900]
 
@@ -19,7 +27,23 @@ def random_date():
     return start_date + timedelta(days=random_days)
 
 
-applicants = []
+applicants = [
+    {
+        'applicant_id': uuid4(),
+        'hsc_roll': random_with_n_digits(6),
+        'hsc_reg': random_with_n_digits(10),
+        'hsc_board': 'Dhaka',
+        'hsc_year': '2022',
+        'hsc_result': 5,
+        'hsc_group': 'Science',
+        'name': 'Komol Kunty Rajib',
+        'email': 'kunty_kintu_komol@gmail.com',
+        'college': 'Dhaka College',
+        'phone_number': '01712345678',
+        'father_name': 'Daddy',
+        'mother_name': 'Mommy'
+    }
+]
 
 university = [
     {

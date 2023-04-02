@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Text, Date, VARCHAR, ForeignKey
+from sqlalchemy import Column, Integer, Text, Date, DateTime, VARCHAR, ForeignKey, Float, DOUBLE_PRECISION
 from sqlalchemy.ext.declarative import declarative_base
 
 from database import engine
@@ -7,7 +7,6 @@ Base = declarative_base()
 
 
 class Applicants(Base):
-
     __tablename__ = 'applicants'
 
     applicant_id = Column(VARCHAR(36), primary_key=True)
@@ -47,7 +46,6 @@ class Payment(Base):
     __tablename__ = 'payment'
 
     transaction_id = Column(VARCHAR(36), primary_key=True)
-    student_id = Column(VARCHAR(36))
     payment_amount = Column(Text)
     payment_status = Column(Text)
     payment_time = Column(Date)
@@ -57,11 +55,12 @@ class Exam(Base):
     __tablename__ = 'exam'
 
     exam_id = Column(VARCHAR(36), primary_key=True)
+    admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
     venue_id = Column(VARCHAR(36))
     venue_name = Column(Text)
     exam_datetime = Column(Text)
+    application_deadline = Column(DateTime)
     exam_fee = Column(Integer)
-    admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
 
 
 class Application(Base):
@@ -70,8 +69,8 @@ class Application(Base):
     application_id = Column(VARCHAR(36), primary_key=True)
     applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
     exam_id = Column(VARCHAR(36), ForeignKey(Exam.exam_id, ondelete='CASCADE'))
+    transaction_id = Column(VARCHAR(36), ForeignKey(Payment.transaction_id, ondelete='SET NULL'))
     status = Column(Text)
-    transaction_id = Column(VARCHAR(36))
 
     marks = Integer()
 
