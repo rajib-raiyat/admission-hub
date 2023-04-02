@@ -31,7 +31,7 @@ class University(Base):
 
     university_id = Column(VARCHAR(36), primary_key=True)
     university_name = Column(Text)
-    university_image = Column(Text)  # abs path of the image
+    university_image = Column(Text)
     university_intro = Column(Text)
 
 
@@ -41,14 +41,12 @@ class AdmissionGroup(Base):
     admission_group_id = Column(VARCHAR(36), primary_key=True)
     university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
     group_name = Column(Text)
-    # application_fee = Column(Integer)
 
 
 class Payment(Base):
     __tablename__ = 'payment'
 
     transaction_id = Column(VARCHAR(36), primary_key=True)
-    # applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
     student_id = Column(VARCHAR(36))
     payment_amount = Column(Text)
     payment_status = Column(Text)
@@ -61,10 +59,7 @@ class Exam(Base):
     exam_id = Column(VARCHAR(36), primary_key=True)
     venue_id = Column(VARCHAR(36))
     venue_name = Column(Text)
-    exam_datetime = Column(Text)  # datetime
-    # students = Column(Text)  # list
-    # applicantions = Column(Text)  # list
-    # university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
+    exam_datetime = Column(Text)
     exam_fee = Column(Integer)
     admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
 
@@ -76,8 +71,6 @@ class Application(Base):
     applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
     exam_id = Column(VARCHAR(36), ForeignKey(Exam.exam_id, ondelete='CASCADE'))
     status = Column(Text)
-    # university_id = Column(VARCHAR(36))
-    # admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
     transaction_id = Column(VARCHAR(36))
 
     marks = Integer()
