@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, Text, Date, VARCHAR
-from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, Text, Date, DateTime, VARCHAR, ForeignKey, Float, DOUBLE_PRECISION
+from sqlalchemy.ext.declarative import declarative_base
 
 from database import engine
 
@@ -32,7 +32,7 @@ class University(Base):
 
     university_id = Column(VARCHAR(36), primary_key=True)
     university_name = Column(Text)
-    university_image = Column(Text)  # abs path of the image
+    university_image = Column(Text)
     university_intro = Column(Text)
 
 
@@ -40,44 +40,41 @@ class AdmissionGroup(Base):
     __tablename__ = 'admission_groups'
 
     admission_group_id = Column(VARCHAR(36), primary_key=True)
-    university_id = Column(VARCHAR(36))
+    university_id = Column(VARCHAR(36), ForeignKey(University.university_id, ondelete='CASCADE'))
     group_name = Column(Text)
-    exam_datetime = Column(Text)  # datetime
-    application_fee = Column(Integer)
 
 
 class Payment(Base):
     __tablename__ = 'payment'
 
     transaction_id = Column(VARCHAR(36), primary_key=True)
-    applicant_id = Column(VARCHAR(36))
-    student_id = Column(VARCHAR(36))
     payment_amount = Column(Text)
     payment_status = Column(Text)
     payment_time = Column(Date)
-
-
-class Application(Base):
-    __tablename__ = 'application'
-
-    application_id = Column(VARCHAR(36), primary_key=True)
-    applicant_id = Column(VARCHAR(36))
-    status = Column(Text)
-    university_id = Column(VARCHAR(36))
-    admission_group_id = Column(VARCHAR(36))
-    transaction_id = Column(VARCHAR(36))
 
 
 class Exam(Base):
     __tablename__ = 'exam'
 
     exam_id = Column(VARCHAR(36), primary_key=True)
+    admission_group_id = Column(VARCHAR(36), ForeignKey(AdmissionGroup.admission_group_id, ondelete='CASCADE'))
     venue_id = Column(VARCHAR(36))
     venue_name = Column(Text)
-    students = Column(Text)  # list
-    applicantions = Column(Text)  # list
-    university_id = Column(VARCHAR(36))
-    admission_group_id = Column(VARCHAR(36))
+    exam_datetime = Column(Text)
+    application_deadline = Column(DateTime)
+    exam_fee = Column(Integer)
+
+
+class Application(Base):
+    __tablename__ = 'application'
+
+    application_id = Column(VARCHAR(36), primary_key=True)
+    applicant_id = Column(VARCHAR(36), ForeignKey(Applicants.applicant_id, ondelete='CASCADE'))
+    exam_id = Column(VARCHAR(36), ForeignKey(Exam.exam_id, ondelete='CASCADE'))
+    transaction_id = Column(VARCHAR(36), ForeignKey(Payment.transaction_id, ondelete='SET NULL'))
+    status = Column(Text)
+
+    marks = Integer()
 
 
 if __name__ == '__main__':

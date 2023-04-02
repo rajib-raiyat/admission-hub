@@ -78,6 +78,10 @@ def create_user():
     if not username or not password or not applicant_id:
         return render_template('common-error.html', error_message='No username or password found.')
 
+    check_username = session.query(Applicants).filter_by(username=username).first()
+    if check_username:
+        return render_template('common-error.html', error_message='username already exists!')
+
     get_applicant = session.query(Applicants).filter_by(
         applicant_id=applicant_id
     ).first()
