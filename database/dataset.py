@@ -2,11 +2,11 @@ import random
 import string
 import uuid
 from datetime import timedelta, datetime
+from random import randint
 from uuid import uuid4
 
 from database import session
 from database.models import Applicants, University, AdmissionGroup
-from random import randint
 
 
 def random_with_n_digits(n):
@@ -49,59 +49,87 @@ university = [
     {
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
         'university_name': 'Bangabandhu Sheikh Mujibur Rahman Science and Technology University',
-        'university_image': f'../assets/university_image//f9606f18-52c2-4664-8f1c-be2db74a9e17.jpg',
+        'university_image': f'../assets/university_image/f9606f18-52c2-4664-8f1c-be2db74a9e17.jpg',
         'university_intro': 'Bangabandhu Sheikh Mujibur Rahman Science and Technology University is one of the oldest and most prestigious universities in '
                             'Bangladesh.'
     },
     {
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'university_name': 'University of Dhaka',
-        'university_image': f'../assets/university_image//cddf733e-6e9c-45af-8553-cc266e6aca2d.jpg',
+        'university_image': f'../assets/university_image/cddf733e-6e9c-45af-8553-cc266e6aca2d.jpg',
         'university_intro': 'The University of Dhaka is one of the oldest and most prestigious universities in '
                             'Bangladesh.'
     },
     {
         'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
         'university_name': 'University of Rajshahi',
-        'university_image': f'../assets/university_image//6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e.jpg',
+        'university_image': f'../assets/university_image/6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e.jpg',
         'university_intro': 'The University of Rajshahi is one of the largest and most respected public universities '
                             'in Bangladesh.'
     },
     {
         'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
         'university_name': 'University of Chittagong',
-        'university_image': f'../assets/university_image//3977ab12-cc17-42ec-83f0-b752802761e5.jpg',
+        'university_image': f'../assets/university_image/3977ab12-cc17-42ec-83f0-b752802761e5.jpg',
         'university_intro': 'The University of Chittagong is a renowned public university located in Chittagong, '
                             'Bangladesh.'
     },
     {
         'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
         'university_name': 'Jahangirnagar University',
-        'university_image': f'../assets/university_image//77d1387c-0654-41a5-beef-9ec77fcb31f4.jpg',
+        'university_image': f'../assets/university_image/77d1387c-0654-41a5-beef-9ec77fcb31f4.jpg',
         'university_intro': 'Jahangirnagar University is a public university located in Savar, Bangladesh.'
     },
     {
         'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
         'university_name': 'Khulna University',
-        'university_image': f'../assets/university_image//5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58.jpg',
+        'university_image': f'../assets/university_image/5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58.jpg',
         'university_intro': 'Khulna University is a public university located in Khulna, Bangladesh.'
     },
     {
         'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
         'university_name': 'National University',
-        'university_image': f'../assets/university_image//9855d5ef-16a1-4ed0-b322-0426791efc09.jpg',
+        'university_image': f'../assets/university_image/9855d5ef-16a1-4ed0-b322-0426791efc09.jpg',
         'university_intro': 'National University is a government-run university located in Gazipur, Bangladesh.'
     },
     {
         'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
         'university_name': 'Bangladesh Agricultural University',
-        'university_image': f'../assets/university_image//932477b6-3824-4214-9ca6-951a7ace8d7e.jpg',
+        'university_image': f'../assets/university_image/932477b6-3824-4214-9ca6-951a7ace8d7e.jpg',
         'university_intro': 'Bangladesh Agricultural University (BAU) is a specialized public university located in '
                             'Mymensingh, Bangladesh.'
     },
 ]
 
 admission_group = [
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
+        'group_name': 'Group-A',
+        'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'application_fee': random.choice(application_fee)
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
+        'group_name': 'Group-B',
+        'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'application_fee': random.choice(application_fee)
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
+        'group_name': 'Group-C',
+        'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'application_fee': random.choice(application_fee)
+    },
+    {
+        'admission_group_id': uuid4(),
+        'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
+        'group_name': 'Group-D',
+        'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'application_fee': random.choice(application_fee)
+    },
     {
         'admission_group_id': uuid4(),
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
