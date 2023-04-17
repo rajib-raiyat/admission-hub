@@ -1,9 +1,9 @@
-***Student can select multiple unis for apply.
-***Student can pay.
-***Stu can download admit card.
-***Stu can see his/her result.
-
-**Student can Login(No Sign Up).
-**Uni can Login(No Sign Up).
-**Uni can submit result.
+# ***Student can select multiple unis for apply.
+# ***Student can pay.
+# ***Stu can download admit card.
+# ***Stu can see his/her result.
+#
+# **Student can Login(No Sign Up).
+# **Uni can Login(No Sign Up).
+# **Uni can submit result.
 
