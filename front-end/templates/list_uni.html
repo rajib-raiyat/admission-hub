@@ -18,18 +18,17 @@
     </style>
 </head>
 <body>
-<button class="btn btn-success float-right" id="payBtn" type="button">Pay</button>
-
+<button class="btn btn-success float-right" id="payBtn" type="button" value="{{ applicant_id }}">Pay</button>
 <div class="container mt-3">
     <h2>University List</h2>
     <div class="row" style=" height: 10rem;">
         {% for uni in data %}
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-            <div class="card" >
-                <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ uni.university_name }}</h5>
-                    <p class="card-text">{{ uni.university_intro }}</p>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                <div class="card">
+                    <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ uni.university_name }}</h5>
+                        <p class="card-text">{{ uni.university_intro }}</p>
                     <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}" data-toggle="modal"
                             data-university-id="{{ uni.university_id }}" type="button">
                         View Admission Groups
@@ -60,13 +59,12 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
-                            <button class="btn btn-primary" type="button">Save Changes</button>
+                            <button class="btn btn-primary" data-dismiss="modal" type="button">Save Changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         {% endfor %}
     </div>
 </div>
@@ -78,18 +76,19 @@
     });
 
     function submitForm() {
-        const data = [];
+        const choice_data = [];
 
         // loop through each university modal to get its selected admission groups
         $('.modal').each(function () {
             const university_id = $(this).find('button.btn-primary').data('university-id');
+
             const selectedGroups = $(this).find('input[name="admission_group[]"]:checked').map(function () {
                 return $(this).val();
             }).get();
 
             // add the university and its selected admission groups to the data array
             if (selectedGroups.length > 0) {
-                data.push({
+                choice_data.push({
                     "university_id": university_id,
                     "admission_group_id": selectedGroups
                 });
@@ -97,14 +96,14 @@
         });
 
         // get a list of just the admission group IDs
-        const admissionGroupIds = data.flatMap(entry => entry.admission_group_id);
+        const admissionGroupIds = choice_data.flatMap(entry => entry.admission_group_id);
+        let applicant_id = $('#payBtn').val();
+        console.log(applicant_id)
 
         // set the data to a query parameter and redirect to another page
         const dataStr = encodeURIComponent(JSON.stringify(admissionGroupIds));
-        window.location.href = "/pay?data=" + dataStr;
+        window.location.href = "/pay?data=" + dataStr + "&applicant_id=" + applicant_id;
     }
-
-
 </script>
 </body>
 </html>

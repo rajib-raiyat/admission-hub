@@ -135,8 +135,12 @@
         </div>
         <div class="col-md-6">
             <div class="mb-3">
-                <label for="formFileSm" class="form-label">Upload a Passport Size Image</label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file">
+
+                <label for="formFileSm" class="form-label" title="">Upload a Passport Size Image</label>
+                <form id="image-upload-form" method="post" enctype="multipart/form-data">
+                    <input type="file" id="image-input" name="image">
+                </form>
+
             </div>
         </div>
         <div style="width: 100%; text-align: right;">
@@ -149,7 +153,24 @@
 
 <script>
     function completeReg() {
+        var formData = new FormData();
+        formData.append('image', $('#image-input')[0].files[0]);
         const applicant_id = $('button.btn-success').data('applicant-id');
+
+        $.ajax({
+            url: '/upload?fn=' + applicant_id,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
         const username = encodeURIComponent(document.getElementById('userId').value);
         const pass = encodeURIComponent(document.getElementById('password').value);
 
