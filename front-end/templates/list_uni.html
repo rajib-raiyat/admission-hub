@@ -15,40 +15,93 @@
             height: 15vw;
             object-fit: cover;
         }
+
+        .card-size {
+            width: 300px;
+            height: 400px;
+        }
+
+        .card-text.university-intro.show-more {
+            white-space: normal;
+            overflow: auto;
+            max-height: none;
+        }
+
+        .card-text.university-intro {
+            white-space: nowrap;
+            overflow: hidden;
+            max-height: 3.6em;
+            text-overflow: ellipsis;
+        }
+
+        body {
+            padding-top: 80px; /* adjust the value as needed */
+        }
+
     </style>
 </head>
 <body>
-<button class="btn btn-success float-right" id="payBtn" type="button" value="{{ applicant_id }}">Pay</button>
+<button class="btn btn-success float-right" id="payBtn" type="button" value="{{ applicant_id }}" disabled>Pay</button>
 <div class="container mt-3">
-    <h2>University List</h2>
-    <div class="row" style=" height: 10rem;">
-        {% for uni in data %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                <div class="card">
-                    <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ uni.university_name }}</h5>
-                        <p class="card-text">{{ uni.university_intro }}</p>
-                    <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}" data-toggle="modal"
-                            data-university-id="{{ uni.university_id }}" type="button">
-                        View Admission Groups
-                    </button>
-                </div>
+    <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://localhost:5000">
+                <img src="../assets/homepage-logo.PNG" alt="AdmissionHub Logo" width="160">
+            </a>
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <button class="btn custom-button" onclick="window.location.href='/std-login'" type="button">
+                            Student Login
+                        </button>
+                        <button class="btn custom-button" onclick="window.location.href='/uni-login'" type="button">
+                            University Login
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center order-md-2">
+                        <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
+                            <img alt="Mujib Logo" height="60" src="../assets/mujib-logo.png" width="160">
+                        </a>
+                    </div>
+                </ul>
             </div>
-            <!-- The Modal -->
-            <div class="modal" id="myModal{{ uni.university_id }}">
-                <div class="modal-dialog modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
-                            <button class="close" data-dismiss="modal" type="button">&times;</button>
+        </div>
+    </nav>
+
+    <div>
+        <h2>University List</h2>
+        <div class="row" style=" height: 10rem;">
+            {% for uni in data %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card card-size">
+                        <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ uni.university_name }}</h5>
+                            <p class="card-text university-intro">{{ uni.university_intro }}</p>
+                            <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}"
+                                    data-toggle="modal"
+                                    data-university-id="{{ uni.university_id }}" type="button">
+                                View Admission Groups
+                            </button>
                         </div>
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            {% for group in uni.admission_group %}
-                            <div class="form-check">
-                                <input class="form-check-input" id="{{ group.admission_group_id }}"
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal{{ uni.university_id }}">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
+                                    <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    {% for group in uni.admission_group %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="{{ group.admission_group_id }}"
                                        name="admission_group[]"
                                        type="checkbox" value="{{ group.admission_group_id }}">
                                 <label class="form-check-label" for="{{ group.admission_group_id }}">
@@ -66,14 +119,51 @@
             </div>
             </div>
         {% endfor %}
+        </div>
     </div>
 </div>
 <script>
     $(document).ready(function () {
+        $('.university-intro').on('click', function () {
+            $(this).toggleClass('show-more');
+        });
+    });
+
+    $(document).ready(function () {
         $('#payBtn').click(function () {
             submitForm();
         });
+
+        $('.modal').on('hide.bs.modal', function () {
+            updateTotalAmount();
+        });
     });
+
+    function updateTotalAmount() {
+        let totalAmount = 0;
+        $('.modal').each(function () {
+            const selectedGroups = $(this).find('input[name="admission_group[]"]:checked').map(function () {
+                return $(this).val();
+            }).get();
+
+            selectedGroups.forEach(function (groupId) {
+                const admissionGroup = $('input[value="' + groupId + '"]').closest('.form-check');
+                const applicationFee = parseFloat(admissionGroup.find('label[for="' + groupId + '"]').text().split(' - ')[2]);
+                totalAmount += applicationFee;
+                console.log(admissionGroup.find('label[for="' + groupId + '"]'));
+                console.log('applicationFee', applicationFee)
+            });
+        });
+
+        const payBtn = $('#payBtn');
+        payBtn.text('Pay ' + totalAmount + ' /- Tk.');
+
+        if (totalAmount === 0) {
+            payBtn.prop('disabled', true);
+        } else {
+            payBtn.prop('disabled', false);
+        }
+    }
 
     function submitForm() {
         const choice_data = [];
