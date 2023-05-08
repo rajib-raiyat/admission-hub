@@ -17,8 +17,7 @@
         }
 
         .card-size {
-            width: 300px;
-            height: 400px;
+            height: 450px;
         }
 
         .card-text.university-intro.show-more {
@@ -38,10 +37,18 @@
             padding-top: 80px; /* adjust the value as needed */
         }
 
+        .position-left {
+            position: absolute;
+            left: 70%;
+        }
+
+        .btn-md {
+            width: 10rem;
+        }
     </style>
 </head>
 <body>
-<button class="btn btn-success float-right" id="payBtn" type="button" value="{{ applicant_id }}" disabled>Pay</button>
+
 <div class="container mt-3">
     <nav class="navbar navbar-expand-sm navbar-light shadow-sm fs-5 fixed-top" style="background-color: #fff6e5;">
         <div class="container-fluid">
@@ -53,13 +60,14 @@
                     class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto justify-content-between align-items-center">
-                    <div class="d-flex align-items-center">
-                        <button class="btn custom-button" onclick="window.location.href='/std-login'" type="button">
-                            Student Login
+                    <div class="d-flex align-items-center position-left">
+                        <button class="btn btn-success btn-md float-right" id="payBtn" type="button"
+                                value="{{ applicant_id }}"
+                                disabled>Pay
                         </button>
-                        <button class="btn custom-button" onclick="window.location.href='/uni-login'" type="button">
-                            University Login
-                        </button>
+                        <!--                        <button class="btn custom-button" onclick="window.location.href='/uni-login'" type="button">-->
+                        <!--                            University Login-->
+                        <!--                        </button>-->
                     </div>
                     <div class="d-flex justify-content-center align-items-center order-md-2">
                         <a class="m-lg-0" href="https://mujib100.gov.bd/" target="_blank">
@@ -72,53 +80,58 @@
     </nav>
 
     <div>
-        <h2>University List</h2>
-        <div class="row" style=" height: 10rem;">
+        <h2 class="text-center">University List</h2>
+
+        <div class="row" style=" height: 15rem;">
             {% for uni in data %}
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                    <div class="card card-size">
-                        <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ uni.university_name }}</h5>
-                            <p class="card-text university-intro">{{ uni.university_intro }}</p>
-                            <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}"
-                                    data-toggle="modal"
-                                    data-university-id="{{ uni.university_id }}" type="button">
-                                View Admission Groups
-                            </button>
-                        </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="card-deck card-size">
+                    <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ uni.university_name }}</h5>
+                        <!--                        <p class="card-text university-intro">{{ uni.university_intro }}</p>-->
+                        <br>
+                        <br>
                     </div>
-                    <!-- The Modal -->
-                    <div class="modal" id="myModal{{ uni.university_id }}">
-                        <div class="modal-dialog modal-dialog-scrollable">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
-                                    <button class="close" data-dismiss="modal" type="button">&times;</button>
-                                </div>
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    {% for group in uni.admission_group %}
-                                        <div class="form-check">
-                                            <input class="form-check-input" id="{{ group.admission_group_id }}"
-                                       name="admission_group[]"
-                                       type="checkbox" value="{{ group.admission_group_id }}">
-                                <label class="form-check-label" for="{{ group.admission_group_id }}">
-                                    {{ group.group_name }} - {{ group.exam_datetime }} - {{ group.application_fee }}
-                                </label>
+                    <div class="position-absolute">
+                        <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}"
+                                data-toggle="modal"
+                                data-university-id="{{ uni.university_id }}" type="button">
+                            View Admission Groups
+                        </button>
+                    </div>
+                </div>
+                <!-- The Modal -->
+                <div class="modal" id="myModal{{ uni.university_id }}">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
+                                <button class="close" data-dismiss="modal" type="button">&times;</button>
                             </div>
-                            {% endfor %}
-                        </div>
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">Save Changes</button>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                {% for group in uni.admission_group %}
+                                <div class="form-check">
+                                    <input class="form-check-input" id="{{ group.admission_group_id }}"
+                                           name="admission_group[]"
+                                           type="checkbox" value="{{ group.admission_group_id }}">
+                                    <label class="form-check-label" for="{{ group.admission_group_id }}">
+                                        {{ group.group_name }} - {{ group.exam_datetime }} - {{ group.application_fee }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">Save Changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </div>
