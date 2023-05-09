@@ -45,7 +45,9 @@ class AdmissionGroup(Base):
     university_id = Column(VARCHAR(36))
     group_name = Column(Text)
     exam_datetime = Column(Text)  # datetime
+    exam_time = Column(Text)  # datetime
     application_fee = Column(Integer)
+    exam_venue = Column(Text)
 
 
 class Payment(Base):
@@ -57,6 +59,7 @@ class Payment(Base):
     payment_amount = Column(Text)
     payment_status = Column(Text)
     payment_time = Column(Date)
+    groups = Column(Text)
 
 
 class Application(Base):

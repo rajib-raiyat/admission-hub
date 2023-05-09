@@ -52,11 +52,11 @@ def university(applicant_id):
 def pay():
     applicant_id = request.args.get('applicant_id')
     data = request.args.get('data')
-    data = json.loads(data)
+    data_loads = json.loads(data)
 
     total_amount = 0
 
-    for i in data:
+    for i in data_loads:
         amount = session.query(AdmissionGroup).filter_by(admission_group_id=i).first()
         total_amount += amount.application_fee
 
@@ -96,7 +96,8 @@ def pay():
         'student_id': applicant_id,
         'payment_amount': payment_data['total_amount'],
         'payment_status': 'PENDING',
-        'payment_time': datetime.datetime.now()
+        'payment_time': datetime.datetime.now(),
+        'groups': data
     }))
 
     try:
@@ -117,7 +118,7 @@ def uni_login():
     return render_template('LoginUni.html')
 
 
-@app.route("/pay-success", methods=['POST'])
+@app.route("/pay-success", methods=['POST', 'GET'])
 def pay_success():
     transaction_id = request.args.get('tr')
 
@@ -133,6 +134,40 @@ def pay_success():
         session.rollback()
 
     return render_template('paySuccess.html')
+
+
+@app.route("/download-admit-card", methods=['GET'])
+def dow_admit_card():
+    transaction_id = request.args.get('tr')
+
+    group = session.query(Payment).filter_by(transaction_id=transaction_id).first()
+
+    data = []
+    for i in json.loads(group.groups):
+        g = session.query(AdmissionGroup).filter_by(admission_group_id=i).first()
+        u = session.query(University).filter_by(university_id=g.university_id).first()
+
+        temp = {
+            'exam_name': f'{u.university_name} ({g.group_name})',
+            'exam_date': g.exam_datetime,
+            'exam_time': g.exam_time,
+            'exam_venue': g.exam_venue
+        }
+        data.append(temp)
+
+    sorted_data = sorted(data, key=lambda x: datetime.datetime.strptime(x['exam_date'], '%d %B, %Y'))
+    applicant = session.query(Applicants).filter_by(applicant_id=group.applicant_id).first()
+
+    # html = render_template_string(f'{applicant.name}_admit_card.html', data=sorted_data, applicant_name=applicant.name, applicant_id=applicant.applicant_id)
+    # pdf = HTML(string=html).write_pdf()
+    # 
+    # print(pdf)
+    # # save the PDF to a file
+    # with open(f'{applicant.name}_admit_card.pdf', 'wb') as f:
+    #     f.write(pdf)
+
+    return render_template('admit_card.html', data=sorted_data, applicant_name=applicant.name,
+                           applicant_id=applicant.applicant_id)
 
 
 @app.route("/pay-failed", methods=['POST'])
@@ -212,7 +247,7 @@ def create_user():
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
-    os.makedirs('applicant_image', exist_ok=True)
+    os.makedirs('front-end/assets/applicant_image', exist_ok=True)
 
     applicant_id = request.args.get('fn')
     image = request.files['image']

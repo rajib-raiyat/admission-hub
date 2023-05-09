@@ -16,10 +16,6 @@
             object-fit: cover;
         }
 
-        .card-size {
-            height: 450px;
-        }
-
         .card-text.university-intro.show-more {
             white-space: normal;
             overflow: auto;
@@ -44,6 +40,45 @@
 
         .btn-md {
             width: 10rem;
+        }
+
+        .custom-card {
+            border: 1px solid #ffffff;
+            box-shadow: 0 0 5px rgba(2, 2, 2, 0.5);
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            height: 90%;
+        }
+
+        .custom-card img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .custom-card .card-body {
+            padding: 1rem;
+        }
+
+        .custom-card .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .custom-card .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .custom-card .btn {
+            font-size: 1rem;
+            border-radius: 5px;
+            background-color: #28a745;
+            border-color: #28a745;
+
+        }
+
+        .custom-card .btn:hover {
+            background-color: #218838;
+            border-color: #218838;
         }
     </style>
 </head>
@@ -84,30 +119,28 @@
 
         <div class="row" style=" height: 15rem;">
             {% for uni in data %}
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card-deck card-size">
-                    <img alt="{{ uni.university_name }}" class="card-img-top" src="{{ uni.university_image }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ uni.university_name }}</h5>
-                        <!--                        <p class="card-text university-intro">{{ uni.university_intro }}</p>-->
-                        <br>
-                        <br>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+
+                    <div class="card custom-card">
+                        <img class="card-img-top" src="{{ uni.university_image }}" alt="{{ uni.university_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ uni.university_name }}</h5>
+                            <button class="btn btn-success" data-target="#myModal{{ uni.university_id }}"
+                                    data-toggle="modal" data-university-id="{{ uni.university_id }}" type="button">View
+                                Admission Groups
+                            </button>
+                            <br>
+                            <p class="card-text">{{ uni.university_intro }}</p>
+                        </div>
                     </div>
-                    <div class="position-absolute">
-                        <button class="btn btn-primary" data-target="#myModal{{ uni.university_id }}"
-                                data-toggle="modal"
-                                data-university-id="{{ uni.university_id }}" type="button">
-                            View Admission Groups
-                        </button>
-                    </div>
-                </div>
-                <!-- The Modal -->
-                <div class="modal" id="myModal{{ uni.university_id }}">
-                    <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal{{ uni.university_id }}">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
                                 <button class="close" data-dismiss="modal" type="button">&times;</button>
                             </div>
                             <!-- Modal body -->

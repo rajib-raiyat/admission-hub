@@ -27,6 +27,15 @@ def random_date():
     return start_date + timedelta(days=random_days)
 
 
+def generate_random_time():
+    start_time = datetime.strptime('09:00 AM', '%I:%M %p')
+    end_time = datetime.strptime('12:00 PM', '%I:%M %p') - timedelta(hours=1, minutes=30)
+    time_diff = end_time - start_time
+    random_time = start_time + timedelta(minutes=random.randint(0, int(time_diff.total_seconds() / 60)))
+    return random_time.strftime('%I:%M %p') + ' - ' + (random_time + timedelta(hours=1, minutes=30)).strftime(
+        '%I:%M %p')
+
+
 applicants = [
     {
         'applicant_id': uuid4(),
@@ -120,6 +129,7 @@ admission_group = [
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -127,6 +137,7 @@ admission_group = [
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -134,6 +145,7 @@ admission_group = [
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -141,6 +153,7 @@ admission_group = [
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -148,6 +161,7 @@ admission_group = [
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -155,6 +169,7 @@ admission_group = [
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -162,6 +177,7 @@ admission_group = [
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -169,6 +185,7 @@ admission_group = [
         'university_id': 'cddf733e-6e9c-45af-8553-cc266e6aca2d',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -176,6 +193,7 @@ admission_group = [
         'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -183,6 +201,7 @@ admission_group = [
         'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -190,6 +209,7 @@ admission_group = [
         'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -197,6 +217,7 @@ admission_group = [
         'university_id': '6fcb1eb8-946a-41f9-8c98-2f0d8a5f2a3e',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -204,6 +225,7 @@ admission_group = [
         'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -211,6 +233,7 @@ admission_group = [
         'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -218,6 +241,7 @@ admission_group = [
         'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -225,6 +249,7 @@ admission_group = [
         'university_id': '3977ab12-cc17-42ec-83f0-b752802761e5',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -232,6 +257,7 @@ admission_group = [
         'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -239,6 +265,7 @@ admission_group = [
         'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -246,6 +273,7 @@ admission_group = [
         'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -253,6 +281,7 @@ admission_group = [
         'university_id': '77d1387c-0654-41a5-beef-9ec77fcb31f4',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -260,6 +289,7 @@ admission_group = [
         'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -267,6 +297,7 @@ admission_group = [
         'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -274,6 +305,7 @@ admission_group = [
         'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -281,6 +313,7 @@ admission_group = [
         'university_id': '5b7a2ba2-4a4d-44f8-81eb-41003c9fbd58',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -288,6 +321,7 @@ admission_group = [
         'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -295,6 +329,7 @@ admission_group = [
         'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -302,6 +337,7 @@ admission_group = [
         'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -309,6 +345,7 @@ admission_group = [
         'university_id': '9855d5ef-16a1-4ed0-b322-0426791efc09',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -316,6 +353,7 @@ admission_group = [
         'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -323,6 +361,7 @@ admission_group = [
         'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -330,6 +369,7 @@ admission_group = [
         'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
     {
@@ -337,6 +377,7 @@ admission_group = [
         'university_id': '932477b6-3824-4214-9ca6-951a7ace8d7e',
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
+        'exam_time': generate_random_time(),
         'application_fee': random.choice(application_fee)
     },
 

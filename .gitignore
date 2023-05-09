@@ -257,5 +257,5 @@ poetry.toml
 
 # code files
 database/rough.py
-applicant_image
-applicant_image/*
+front-end/assets/applicant_image
+front-end/assets/applicant_image/*
