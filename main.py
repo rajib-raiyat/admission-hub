@@ -113,6 +113,12 @@ def std_login():
     return render_template('LoginStu.html')
 
 
+@app.route("/std-home")
+def std_home():
+    return render_template('homeStu.html')
+
+
+
 @app.route("/uni-login")
 def uni_login():
     return render_template('LoginUni.html')
