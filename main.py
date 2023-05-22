@@ -5,7 +5,7 @@ import uuid
 
 import qrcode
 import requests as requests
-from PIL import Image
+from PIL import Image, ImageOps
 from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import and_
 
@@ -45,15 +45,17 @@ def university(applicant_id):
             }
             temp1.append(t)
 
-        temp = {
-            'university_id': i.university_id,
-            'university_name': i.university_name,
-            'university_intro': i.university_intro,
-            'university_image': i.university_image,
-            'admission_group': temp1
-        }
+        if len(temp1):
+            temp = {
+                'university_id': i.university_id,
+                'university_name': i.university_name,
+                'university_intro': i.university_intro,
+                'university_image': i.university_image,
+                'admission_group': temp1
+            }
 
-        data.append(temp)
+            data.append(temp)
+
     return render_template('list_uni.html', data=data, applicant_id=applicant_id)
 
 
@@ -150,6 +152,36 @@ def pay_success():
     return render_template('paySuccess.html')
 
 
+def make_qr(data, store):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4
+    )
+    qr.add_data(data)
+    qr.make(fit=True)
+
+    qr_image = qr.make_image(fill_color="black", back_color="white")
+
+    border_size = 10
+    bordered_image = ImageOps.expand(qr_image, border=border_size, fill="black")
+
+    logo_path = "front-end/assets/homepage-logo.PNG"
+    logo_image = Image.open(logo_path)
+
+    logo_size = (bordered_image.size[0] // 2, bordered_image.size[1] // 6)
+    logo_image = logo_image.resize(logo_size)
+
+    logo_position = (
+        (bordered_image.size[0] - logo_image.size[0]) // 2, (bordered_image.size[1] - logo_image.size[1]) // 2)
+
+    bordered_image.paste(logo_image, logo_position)
+
+    os.makedirs(f"front-end/assets/applicant_image", exist_ok=True)
+    bordered_image.save(f"front-end/assets/applicant_image/{store}-q.png")
+
+
 @app.route("/download-admit-card", methods=['GET'])
 def dow_admit_card():
     transaction_id = request.args.get('tr')
@@ -172,19 +204,9 @@ def dow_admit_card():
     sorted_data = sorted(data, key=lambda x: datetime.datetime.strptime(x['exam_date'], '%d %B, %Y'))
     applicant = session.query(Applicants).filter_by(applicant_id=group.applicant_id).first()
 
-    # html = render_template_string(f'{applicant.name}_admit_card.html', data=sorted_data, applicant_name=applicant.name, applicant_id=applicant.applicant_id)
-    # pdf = HTML(string=html).write_pdf()
-    # 
-    # print(pdf)
-    # # save the PDF to a file
-    # with open(f'{applicant.name}_admit_card.pdf', 'wb') as f:
-    #     f.write(pdf)
+    data = f"http://127.0.0.1:5000/download-admit-card?tr={transaction_id}"
+    make_qr(data=data, store=group.applicant_id)
 
-    logo_position = ((qr_image.size[0] - logo_image.size[0]) // 2, (qr_image.size[1] - logo_image.size[1]) // 2)
-
-    qr_image.paste(logo_image, logo_position)
-
-    qr_image.save("qrcode_with_logo.png")
     return render_template('admit_card.html', data=sorted_data, applicant_name=applicant.name,
                            applicant_id=applicant.applicant_id)
 
@@ -271,5 +293,5 @@ def upload_image():
     applicant_id = request.args.get('fn')
     image = request.files['image']
 
-    image.save(f'applicant_image/{applicant_id}')
+    image.save(f'front-end/assets/applicant_image/{applicant_id}')
     return 'Image uploaded successfully!'

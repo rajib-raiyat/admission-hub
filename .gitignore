@@ -259,3 +259,4 @@ poetry.toml
 database/rough.py
 front-end/assets/applicant_image
 front-end/assets/applicant_image/*
+du_qr.png
