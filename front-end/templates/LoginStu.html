@@ -37,7 +37,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
             <div class="text-center">
-                <button type="button" class="btn btn-primary" onclick="window.location.href='/std-home'">Login</button>
+                <button type="button" class="btn btn-primary" onclick="Login()">Login</button>
             </div>
         </form>
     </div>
@@ -47,7 +47,15 @@
 
 
 </div>
+<script>
+    function Login() {
+        const username = encodeURIComponent(document.getElementById('username').value);
+        const pass = encodeURIComponent(document.getElementById('password').value);
 
+        window.location.href = '/check-res?username=' + username + '&pass=' + pass;
+    }
+
+</script>
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

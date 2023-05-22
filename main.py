@@ -10,7 +10,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import and_
 
 from database import session
-from database.models import University, AdmissionGroup, Applicants, Payment
+from database.models import University, AdmissionGroup, Applicants, Payment, Result
 
 app = Flask(__name__, template_folder='front-end/templates', static_folder='front-end/assets')
 
@@ -82,7 +82,7 @@ def pay():
         'cus_city': 'Dhaka',
         'store_id': 'admis6422b090c562a',
         'store_passwd': 'admis6422b090c562a@ssl',
-        'success_url': f'http://127.0.0.1:5000/pay-success?tr={tr}',
+        'success_url': f'http://127.0.0.1:5000/pay-success?tr={tr}&d={",".join(data_loads)}&ap={applicant_id}',
         'fail_url': f'http://127.0.0.1:5000/pay-failed?tr={tr}',
         'cancel_url': f'http://127.0.0.1:5000/pay-cancel?tr={tr}',
         'tran_id': tr,
@@ -137,6 +137,8 @@ def uni_login():
 @app.route("/pay-success", methods=['POST', 'GET'])
 def pay_success():
     transaction_id = request.args.get('tr')
+    data = request.args.get('d')
+    ap = request.args.get('ap')
 
     session.query(Payment).filter_by(
         transaction_id=transaction_id
@@ -148,6 +150,24 @@ def pay_success():
         session.commit()
     except Exception:
         session.rollback()
+
+    for i in data.split(','):
+        application = session.query(AdmissionGroup).filter_by(admission_group_id=i).first()
+        uni = session.query(University).filter_by(university_id=application.university_id).first()
+
+        session.add(Result(**{
+            'exam_id': uuid.uuid4(),
+            'applicant_id': ap,
+            'admission_group_id': i,
+            'university_id': application.university_id,
+            'university_name': uni.university_name,
+            'exam_name': application.group_name
+        }))
+
+        try:
+            session.commit()
+        except Exception:
+            session.rollback()
 
     return render_template('paySuccess.html')
 
@@ -284,6 +304,45 @@ def create_user():
         session.rollback()
 
     return redirect(url_for('university', applicant_id=applicant_id))
+
+
+@app.route('/res-stu')
+def res_stu():
+    applicant_id = request.args.get('apid')
+
+    get_applicant = session.query(Applicants).filter_by(
+        applicant_id=applicant_id
+    ).first()
+
+    if not get_applicant:
+        return render_template('common-error.html', error_message='No student found.')
+
+    result = session.query(Result).filter_by(applicant_id=applicant_id).all()
+
+    return render_template(
+        'homeStu.html',
+        result=result,
+        applicant_name=get_applicant.name,
+        applicant_id=get_applicant.applicant_id
+    )
+
+
+@app.route("/check-res")
+def check_res():
+    username = request.args.get('username')
+    password = request.args.get('pass')
+
+    if not username or not password:
+        return render_template('common-error.html', error_message='No username or password input found.')
+
+    check_username = session.query(Applicants).filter_by(username=username).first()
+    if not check_username:
+        return render_template('common-error.html', error_message='Username or password wrong.')
+
+    if check_username.password != password:
+        return render_template('common-error.html', error_message='Username or password wrong.')
+
+    return redirect(f'http://127.0.0.1:5000/res-stu?apid={check_username.applicant_id}')
 
 
 @app.route('/upload', methods=['POST'])

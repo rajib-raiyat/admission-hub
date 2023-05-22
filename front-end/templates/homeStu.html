@@ -13,7 +13,22 @@
             width: 150px;
             height: 150px;
             margin-left: 20px;
+        }
 
+        .wide {
+            width: 30%; /* adjust to your desired width */
+            height: 50px; /* adjust to your desired height */
+        }
+
+        .table {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 10px;
         }
     </style>
 </head>
@@ -32,7 +47,8 @@
                     <li class="nav-item active"><a class="nav-link" href="#">Application</a></li>
                     <li class="nav-item active"><a class="nav-link" href="#">Result</a></li>
 
-                    <button class="btn custom-button" onclick="window.location.href='/logout'" type="button">
+                    <button class="btn custom-button" onclick="window.location.href='http://127.0.0.1:5000'"
+                            type="button">
                         Logout
                     </button>
                 </div>
@@ -52,12 +68,11 @@
         <h5 class=""><strong>Applicant Name:</strong> {{ applicant_name }}</h5>
         <p><strong>Applicant ID:</strong> {{ applicant_id }}</p>
     </div>
-    <br>
-    <br>
-    <!--    <div>-->
-    <!--        <img src="../assets/3cde2b38-5a30-4751-bfdd-35d6a0b96e74" alt="Student Photo"-->
-    <!--             class="student-photo">-->
-    <!--    </div>-->
+
+    <div class="col-md-3 ">
+        <img src="../assets/applicant_image/{{ applicant_id }}" alt="Student Photo"
+             class="student-photo">
+    </div>
     <table class="table table-striped table-bordered mt-4" style="background-color: white;">
         <thead>
         <tr>
@@ -67,26 +82,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Dhaka University-Ka Group</td>
-            <td>Pass</td>
-            <td>2nd</td>
-        </tr>
-        <tr>
-            <td>Jahangirnagar University-IT</td>
-            <td>Fail</td>
-            <td>N/A</td>
-        </tr>
-        <tr>
-            <td>Rajshahi University-Ka Group</td>
-            <td>Pass</td>
-            <td>1st</td>
-        </tr>
-        <tr>
-            <td>Chittagong University-Ka Group</td>
-            <td>Fail</td>
-            <td>N/A</td>
-        </tr>
+        {% for d in result %}
+            <tr>
+                <td class="wide">{{ d. university_name }} ({{ d.exam_name }})</td>
+                <td>{{ d. result }}</td>
+                <td>{{ d. position }}</td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>

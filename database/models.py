@@ -75,21 +75,23 @@ class Application(Base):
     transaction_id = Column(VARCHAR(36))
 
 
-class Exam(Base):
-    __tablename__ = 'exam'
+class Result(Base):
+    __tablename__ = 'result'
 
     exam_id = Column(VARCHAR(36), primary_key=True)
-    venue_id = Column(VARCHAR(36))
-    venue_name = Column(Text)
-    students = Column(Text)
-    applicantions = Column(Text)
-    university_id = Column(VARCHAR(36))
+    applicant_id = Column(VARCHAR(36))
     admission_group_id = Column(VARCHAR(36))
+    university_id = Column(VARCHAR(36))
+    university_name = Column(Text)
+    exam_name = Column(Text)
+
+    result = Column(VARCHAR(36))
+    position = Column(VARCHAR(36))
 
 
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
-    for i in [Applicants, University, AdmissionGroup, Payment, Application, Exam]:
+    for i in [Applicants, University, AdmissionGroup, Payment, Application, Result]:
         i.__table__.drop(engine)
         i.__table__.create(engine)
