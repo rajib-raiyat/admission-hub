@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Text, Date, VARCHAR
+from sqlalchemy import Column, Integer, Text, Date, VARCHAR, Float
 from sqlalchemy.orm import declarative_base
 
 from database import engine
@@ -14,7 +14,7 @@ class Applicants(Base):
     hsc_reg = Column(Text)
     hsc_board = Column(Text)
     hsc_year = Column(Text)
-    hsc_result = Column(Text)
+    hsc_result = Column(Float)
     hsc_group = Column(Text)
 
     name = Column(Text)
@@ -44,10 +44,12 @@ class AdmissionGroup(Base):
     admission_group_id = Column(VARCHAR(36), primary_key=True)
     university_id = Column(VARCHAR(36))
     group_name = Column(Text)
-    exam_datetime = Column(Text)  # datetime
-    exam_time = Column(Text)  # datetime
+    exam_datetime = Column(Text)
+    exam_time = Column(Text)
     application_fee = Column(Integer)
     exam_venue = Column(Text)
+    min_req = Column(Float)
+    hsc_group = Column(Text)
 
 
 class Payment(Base):

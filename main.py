@@ -3,8 +3,11 @@ import json
 import os
 import uuid
 
+import qrcode
 import requests as requests
+from PIL import Image
 from flask import Flask, render_template, request, redirect, url_for
+from sqlalchemy import and_
 
 from database import session
 from database.models import University, AdmissionGroup, Applicants, Payment
@@ -19,13 +22,17 @@ def index():
 
 @app.route("/university-list/<applicant_id>")
 def university(applicant_id):
+    applicant = session.query(Applicants).filter_by(applicant_id=applicant_id).first()
+
     uni = session.query(University).all()
 
     data = []
 
     for i in uni:
         temp1 = []
-        group = session.query(AdmissionGroup).filter_by(university_id=i.university_id).all()
+        group = session.query(AdmissionGroup).filter_by(university_id=i.university_id).filter(
+            and_(AdmissionGroup.min_req < applicant.hsc_result, AdmissionGroup.hsc_group == applicant.hsc_group)
+        ).all()
 
         for j in group:
             t = {
@@ -33,6 +40,8 @@ def university(applicant_id):
                 'group_name': j.group_name,
                 'exam_datetime': j.exam_datetime,
                 'application_fee': j.application_fee,
+                'group': j.hsc_group,
+                'min': j.min_req
             }
             temp1.append(t)
 
@@ -118,7 +127,6 @@ def std_home():
     return render_template('homeStu.html')
 
 
-
 @app.route("/uni-login")
 def uni_login():
     return render_template('LoginUni.html')
@@ -172,6 +180,11 @@ def dow_admit_card():
     # with open(f'{applicant.name}_admit_card.pdf', 'wb') as f:
     #     f.write(pdf)
 
+    logo_position = ((qr_image.size[0] - logo_image.size[0]) // 2, (qr_image.size[1] - logo_image.size[1]) // 2)
+
+    qr_image.paste(logo_image, logo_position)
+
+    qr_image.save("qrcode_with_logo.png")
     return render_template('admit_card.html', data=sorted_data, applicant_name=applicant.name,
                            applicant_id=applicant.applicant_id)
 

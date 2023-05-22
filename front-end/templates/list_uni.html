@@ -141,27 +141,28 @@
                                 <!-- Modal Header -->
                                 <div class="modal-header">
                                     <h4 class="modal-title">{{ uni.university_name }} - Admission Groups</h4>
-                                <button class="close" data-dismiss="modal" type="button">&times;</button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                {% for group in uni.admission_group %}
-                                <div class="form-check">
-                                    <input class="form-check-input" id="{{ group.admission_group_id }}"
-                                           name="admission_group[]"
-                                           type="checkbox" value="{{ group.admission_group_id }}">
-                                    <label class="form-check-label" for="{{ group.admission_group_id }}">
-                                        {{ group.group_name }} - {{ group.exam_datetime }} - {{ group.application_fee }}
-                                    </label>
                                 </div>
-                                {% endfor %}
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">Save Changes</button>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    {% for group in uni.admission_group %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" id="{{ group.admission_group_id }}"
+                                                   name="admission_group[]"
+                                                   type="checkbox" value="{{ group.admission_group_id }}">
+                                            <label class="form-check-label" for="{{ group.admission_group_id }}">
+                                                {{ group.group_name }} ({{ group.group }}) - {{ group.exam_datetime }}
+                                                - {{ group.application_fee }} Taka
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">Save Changes
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
             {% endfor %}

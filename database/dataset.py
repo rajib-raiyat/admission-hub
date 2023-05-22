@@ -36,24 +36,6 @@ def generate_random_time():
         '%I:%M %p')
 
 
-applicants = [
-    {
-        'applicant_id': uuid4(),
-        'hsc_roll': random_with_n_digits(6),
-        'hsc_reg': random_with_n_digits(10),
-        'hsc_board': 'Dhaka',
-        'hsc_year': '2022',
-        'hsc_result': 5,
-        'hsc_group': 'Science',
-        'name': 'Komol Kunty Rajib',
-        'email': 'kunty_kintu_komol@gmail.com',
-        'college': 'Dhaka College',
-        'phone_number': '01712345678',
-        'father_name': 'Daddy',
-        'mother_name': 'Mommy'
-    }
-]
-
 university = [
     {
         'university_id': 'f9606f18-52c2-4664-8f1c-be2db74a9e17',
@@ -120,7 +102,7 @@ university = [
         'university_intro': 'Bangladesh Agricultural University, also known as BAU, is a public agricultural university located in Mymensingh.'
                             ' Crop science, soil science, animal science, fisheries, and agricultural engineering are a few of the study areas linked to '
                             'agriculture that the institution offers undergraduate and graduate programs in.'
-    },
+    }
 ]
 
 admission_group = [
@@ -130,7 +112,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Academia Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -138,7 +123,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Scholar\'s Arena'
     },
     {
         'admission_group_id': uuid4(),
@@ -146,7 +134,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Wisdom Auditorium'
     },
     {
         'admission_group_id': uuid4(),
@@ -154,7 +145,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Learning Plaza'
     },
     {
         'admission_group_id': uuid4(),
@@ -162,7 +156,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Intellect Center'
     },
     {
         'admission_group_id': uuid4(),
@@ -170,7 +167,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Success Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -178,7 +178,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Knowledge Dome'
     },
     {
         'admission_group_id': uuid4(),
@@ -186,7 +189,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Achievement Pavilion'
     },
     {
         'admission_group_id': uuid4(),
@@ -194,7 +200,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Education Hub'
     },
     {
         'admission_group_id': uuid4(),
@@ -202,7 +211,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Excellence Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -210,7 +222,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Discovery Auditorium'
     },
     {
         'admission_group_id': uuid4(),
@@ -218,7 +233,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Innovation Pavilion'
     },
     {
         'admission_group_id': uuid4(),
@@ -226,7 +244,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Brilliance Center'
     },
     {
         'admission_group_id': uuid4(),
@@ -234,7 +255,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Think Tank Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -242,7 +266,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Genius Arena'
     },
     {
         'admission_group_id': uuid4(),
@@ -250,7 +277,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Achievement Pavilion'
     },
     {
         'admission_group_id': uuid4(),
@@ -258,7 +288,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Academia Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -266,7 +299,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Scholar\'s Arena'
     },
     {
         'admission_group_id': uuid4(),
@@ -274,7 +310,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Wisdom Auditorium'
     },
     {
         'admission_group_id': uuid4(),
@@ -282,7 +321,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Learning Plaza'
     },
     {
         'admission_group_id': uuid4(),
@@ -290,7 +332,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Intellect Center'
     },
     {
         'admission_group_id': uuid4(),
@@ -298,7 +343,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Success Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -306,7 +354,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Knowledge Dome'
     },
     {
         'admission_group_id': uuid4(),
@@ -314,7 +365,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Achievement Pavilion'
     },
     {
         'admission_group_id': uuid4(),
@@ -322,7 +376,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Education Hub'
     },
     {
         'admission_group_id': uuid4(),
@@ -330,7 +387,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Excellence Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -338,7 +398,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Discovery Auditorium'
     },
     {
         'admission_group_id': uuid4(),
@@ -346,7 +409,10 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Innovation Pavilion'
     },
     {
         'admission_group_id': uuid4(),
@@ -354,7 +420,10 @@ admission_group = [
         'group_name': 'Group-A',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Brilliance Center'
     },
     {
         'admission_group_id': uuid4(),
@@ -362,7 +431,10 @@ admission_group = [
         'group_name': 'Group-B',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Think Tank Hall'
     },
     {
         'admission_group_id': uuid4(),
@@ -370,7 +442,10 @@ admission_group = [
         'group_name': 'Group-C',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Genius Arena'
     },
     {
         'admission_group_id': uuid4(),
@@ -378,9 +453,11 @@ admission_group = [
         'group_name': 'Group-D',
         'exam_datetime': random_date().strftime('%d %B, %Y'),
         'exam_time': generate_random_time(),
-        'application_fee': random.choice(application_fee)
-    },
-
+        'application_fee': random.choice(application_fee),
+        'min_req': round(random.uniform(2.50, 5.00), 2),
+        'hsc_group': random.choice(['Science', 'Commerce', 'Arts']),
+        'exam_venue': 'Knowledge Dome'
+    }
 ]
 
 payment = []
@@ -393,21 +470,68 @@ exam = []
 def generate_random_students(num_students):
     students = []
 
+    college_names = [
+        'Dhaka College',
+        'Dhaka Imperial College',
+        'Rajuk Uttara Model College',
+        'Notre Dame College',
+        'Adamjee Cantonment College',
+        'Dhaka Residential Model College',
+        'Birshreshtha Munshi Abdur Rouf College',
+        'Dhaka City College',
+        'Ideal College',
+        'Dhaka Commerce College',
+        'B A F Shaheen College Dhaka',
+        'Milestone College',
+        'Cantonment English School and College',
+        'National Ideal College',
+        'Mymensingh Zilla School',
+        'Carmichael College',
+        'Kabi Nazrul Government College',
+        'Chittagong College',
+        'Feni Government College'
+    ]
+    email_domains = [
+        'gmail.com',
+        'yahoo.com',
+        'hotmail.com',
+        'outlook.com',
+        'icloud.com',
+        'aol.com',
+        'protonmail.com',
+        'mail.com',
+        'zoho.com',
+        'yandex.com'
+    ]
+
     for i in range(num_students):
+        names = ["Ahmed Rahman", "Zaid Ali", "Omar Hussain", "Aariz Ahmed", "Ibrahim Khan", "Ayaan Rahman", "Zayan Ali",
+                 "Rayan Hussain", "Rahim Islam", "Yusuf Ahmed", "Hamza Khan", "Imran Hossain", "Ayan Rahman",
+                 "Farhan Ali", "Armaan Hussain", "Shahid Islam", "Faisal Ahmed", "Nabil Khan", "Kamran Hossain",
+                 "Riyad Rahman"]
+        father_names = ["Mohammed Rahman", "Abdul Ali", "Ismail Hussain", "Nasir Ahmed", "Khalid Khan", "Salim Rahman",
+                        "Shahid Ali", "Rizwan Hussain", "Akram Islam", "Younus Ahmed", "Tariq Khan", "Zahir Hossain",
+                        "Nasim Rahman", "Feroz Ali", "Arshad Hussain", "Anwar Islam", "Javed Ahmed", "Imtiaz Khan",
+                        "Ashraf Hossain", "Abdullah Rahman"]
+        mother_names = ["Sadia Rahman", "Nadia Ali", "Aisha Hussain", "Fariha Ahmed", "Samina Khan", "Sara Rahman",
+                        "Ayesha Ali", "Rukhsana Hussain", "Nasima Islam", "Yasmin Ahmed", "Shabana Khan",
+                        "Farida Hossain", "Razia Rahman", "Nargis Ali", "Nazia Hussain", "Sabina Islam", "Fauzia Ahmed",
+                        "Najma Khan", "Asma Hossain", "Rabeya Rahman"]
+
         applicant_id = str(uuid.uuid4())
         hsc_roll = ''.join(random.choice(string.digits) for _ in range(6))
         hsc_reg = ''.join(random.choice(string.digits) for _ in range(11))
         hsc_board = random.choice(['Dhaka', 'Chittagong', 'Rajshahi', 'Barisal', 'Sylhet'])
-        hsc_year = str(random.randint(2021, 2023))
-        hsc_result = str(random.uniform(2.5, 5.0))[:4]
+        hsc_year = str(random.randint(2020, 2022))
+        hsc_result = round(random.uniform(2.50, 5.00), 2)
         hsc_group = random.choice(['Science', 'Commerce', 'Arts'])
 
-        name = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for _ in range(10))
-        email = name.lower() + "@example.com"
-        college = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for _ in range(15))
+        name = names[i]
+        email = name.lower().replace(' ', '') + '@' + random.choice(email_domains)
+        college = random.choice(college_names)
         phone_number = ''.join(random.choice(string.digits) for _ in range(11))
-        father_name = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for _ in range(10))
-        mother_name = ''.join(random.choice(string.ascii_uppercase + string.ascii_lowercase) for _ in range(10))
+        father_name = father_names[i]
+        mother_name = mother_names[i]
 
         student = Applicants(applicant_id=applicant_id, hsc_roll=hsc_roll, hsc_reg=hsc_reg, hsc_board=hsc_board,
                              hsc_year=hsc_year, hsc_result=hsc_result, hsc_group=hsc_group, name=name, email=email,
